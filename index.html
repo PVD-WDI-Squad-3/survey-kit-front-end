@@ -6,20 +6,46 @@
 
       <!-- Do not add `link` tags unless you know what you are doing -->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link rel="stylesheet" href="assets/styles/css/bootstrap.min.css">
 
       <!-- Do not add `script` tags unless you know what you are doing -->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>Example</h1>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+  <div class="container">
+      <h1>SurveyKit</h1>
+
+      <p>This is survey</p>
+
+
+
+      <div class="row">
+            <div class="col-md-9 push-md-3 offset-md-3">  <form id="registration" class="form-signin">
+            <p>Register</p>
+
+            <div class="input-group">
+                <label for="password"> Email </label>
+              <input type="text" class="form-control" name="credentials[email]" placeholder="Email" aria-label="Username" aria-describedby="sizing-addon2">
+            </div>
+            <div class="input-group">
+            <label for="password"> Password </label>
+            <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
+            </div>
+            <div class="input-group">
+            <label for="password-confirm"> Password </label>
+            <input type="password" class="form-control" name="credentials[password_confirmation]" placeholder="Confirm Password">
+            </div>
+            <input type="submit" class="btn btn-info" name="submit" value="Register">
+
+
+          </form>
+
+
+        </div>
+</div>
+      <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+      <script src="assets/styles/js/bootstrap.min.js"></script>
     </body>
 </html>
