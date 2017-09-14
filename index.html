@@ -88,7 +88,26 @@
       <p>This is our survey kit site for Team Project.</p>
 
 
+      <div class="row">
+          <div class="col-md-9 push-md-3 offset-md-3">
+            <form id="registration" class="form-signup">
+          <p>Register</p>
 
+          <div class="input-group">
+              <label for="password"> Email </label>
+            <input type="text" class="form-control" name="credentials[email]" placeholder="Email" aria-label="Username" aria-describedby="sizing-addon2">
+          </div>
+          <div class="input-group">
+          <label for="password"> Password </label>
+          <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
+          </div>
+          <div class="input-group">
+          <label for="password-confirm"> Password </label>
+          <input type="password" class="form-control" name="credentials[password_confirmation]" placeholder="Confirm Password">
+          </div>
+          <input type="submit" class="btn btn-info" name="submit" value="Register">
+
+      </div>
 
 
           <div class="col-md-3 pull-md-9"><form id="login" class="form-signin">
@@ -170,7 +189,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <input type="submit" class="btn btn-info" name="submit" value="Register">
+          <input type="submit" class="btn btn-info" name="submit" id="registration" value="Register">
             </form>
         </div>
       </div>

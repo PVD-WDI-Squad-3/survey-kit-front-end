@@ -11,7 +11,12 @@ $(() => {
 // const example = require('./example')
 
 // use require without a reference to ensure a file is bundled
-require('./example')
+// require('./example')
+const appEvents = require('../scripts/app/events.js')
+
+$(() => {
+  $('#registration').on('submit', appEvents.registerUser)
+})
 
 // tutorial from: http://blog.appliedinformaticsinc.com/how-to-addremove-input-fields-dynamically-with-jquery/
 $(document).ready(function () {
@@ -36,7 +41,7 @@ $(document).ready(function () {
   })
 })
 
-$(() => {
+$(document).ready(function () {
   $('#passChange').hide()
   $('#log-out').hide()
   $('#showChangePassButton').hide()
