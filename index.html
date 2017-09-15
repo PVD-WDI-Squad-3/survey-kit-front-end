@@ -9,7 +9,7 @@
       <!-- bootstrap css -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
       <link rel="stylesheet" href="assets/styles/css/styles.css">
-      <link rel="stylesheet" href="css/custom.scss">
+      <link rel="stylesheet" href="assets/styles/css/custom.css">
 
       <!-- font styles -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -78,7 +78,7 @@
       <br>
         <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#registerModal">Register</button>
         <!-- Button trigger for login -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registerModal">Login</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">Login</button>
 
       </div>
     </section>
@@ -136,51 +136,86 @@
 
 </div>
 
+  <!-- modal for registration start_______________________________________ -->
+  <div class="container">
+      <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="registerModalLabel">Sign Up</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
 
-<div class="container">
-
-  <!-- Modal for Register-->
-  <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="registerModalLabel">Sign Up</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-              <div class="col-md-9 push-md-3 offset-md-3">  <form id="registration" class="form-signin">
-              <p>Register for a FREE account</p>
-
-              <div class="input-group">
-                  <label for="password"> Email </label>
-                <input type="text" class="form-control" name="credentials[email]" placeholder="Email" aria-label="Username" aria-describedby="sizing-addon2">
+                <div class="modal-body">
+                  <div class="row">
+                      <div class="col-md-9 push-md-3 offset-md-3">
+                        <form id="registration" class="form-register"><p>Register for a FREE SurveyKit account</p>
+                          <div class="input-group">
+                              <label for="password"> Email </label>
+                            <input type="text" class="form-control" name="credentials[email]" placeholder="Email" aria-label="Username" aria-describedby="sizing-addon2">
+                          </div>
+                        <br>
+                          <div class="input-group">
+                          <label for="password"> Password </label>
+                          <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
+                          </div>
+                        <br>
+                          <div class="input-group">
+                          <label for="password-confirm"> Confirm Password </label>
+                          <input type="password" class="form-control" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                          </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <input type="submit" class="btn btn-info" name="submit" value="Register">
+                  </div>
               </div>
-              <div class="input-group">
-              <label for="password"> Password </label>
-              <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
-              </div>
-              <div class="input-group">
-              <label for="password-confirm"> Confirm Password </label>
-              <input type="password" class="form-control" name="credentials[password_confirmation]" placeholder="Confirm Password">
-              </div>
-              <!-- <input type="submit" class="btn btn-info" name="submit" value="Register"> -->
-
-
-
-          </div>
+            </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <input type="submit" class="btn btn-info" name="submit" value="Register">
-        </div>
-      </div>
     </div>
-  </div>
+  </div><!-- model for registration end_________________________________________ -->
 
-</div>
+  <!-- modal for login start____________________________________________________ -->
+  <div class="container">
+      <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="loginModalLabel">Sign In</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+
+                <div class="modal-body">
+                  <div class="row">
+                      <div class="col-md-9 push-md-3 offset-md-3">
+                        <form id="login" class="form-login"><p>Log in to your SurveyKit account </p>
+                          <div class="input-group">
+                              <label for="password"> Email </label>
+                            <input type="text" class="form-control" name="credentials[email]" placeholder="Email" aria-label="Username" aria-describedby="sizing-addon2">
+                          </div>
+                        <br>
+                          <div class="input-group">
+                          <label for="password"> Password </label>
+                          <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
+                          </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <input type="submit" class="btn btn-info" name="submit" value="Login">
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div><!-- modal for login end_________________________________________ -->
 
 <br>
 <hr>
