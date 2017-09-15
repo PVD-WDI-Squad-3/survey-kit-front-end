@@ -50,11 +50,38 @@ const passwordReset = function (data) {
   })
 }
 
+const newSurvey = function (data) {
+  return $.ajax({
+    url: app.host + '/surveys/',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    },
+    method: 'POST',
+    data: {
+    "survey": {
+      "title": data.title,
+      "questions": [{
+        "content": {
+          "question": data.question,
+          "answers": [
+            {"answer": data.answer1},
+            {"answer": data.answer2},
+            {"answer": data.answer3},
+            {"answer": data.answer4}
+          ]
+        }
+      }]
+    }
+  }
+  })
+}
+
 module.exports = {
   addUser,
   userLogin,
   passwordReset,
-  userLogout
+  userLogout,
+  newSurvey
 }
 
 // : {
