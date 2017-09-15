@@ -19,6 +19,7 @@ const onSignupFailure = () => {
 
 const onSigninSuccess = function (data) {
   app.user = data.user
+  //$('#login input').not('.submit').val('')
   console.log('sign in successful')
 }
 
@@ -43,6 +44,16 @@ const onResetFailure = function () {
   console.log('password reset failed')
 }
 
+const onCreateSuccess = function (data) {
+  console.log(data)
+  console.log("Survey Created!")
+  $('#survey input').not('.submit').val('')
+}
+
+const onCreateFailure = function (error) {
+  console.error(error)
+}
+
 module.exports = {
   onSignupSuccess,
   onSignupFailure,
@@ -51,5 +62,7 @@ module.exports = {
   onLogoutSuccess,
   onLogoutFailure,
   onResetSuccess,
-  onResetFailure
+  onResetFailure,
+  onCreateSuccess,
+  onCreateFailure
 }
