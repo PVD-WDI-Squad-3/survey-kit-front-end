@@ -43,9 +43,20 @@ const resetPassword = function (event) {
   .catch(appUi.onResetFailure)
 }
 
+const createSurvey = function (event) {
+  const data = getFormFields(this)
+  console.log(this)
+  console.log(data)
+  event.preventDefault()
+  appApi.newSurvey(data)
+  .then(appUi.onCreateSuccess)
+  .catch(appUi.onCreateFailure)
+}
+
 module.exports = {
   registerUser,
   loginUser,
   logoutUser,
-  resetPassword
+  resetPassword,
+  createSurvey
 }

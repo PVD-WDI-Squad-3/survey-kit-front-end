@@ -19,6 +19,7 @@ $(() => {
   $('#login').on('submit', appEvents.loginUser)
   $('#log-out-btn').on('click', appEvents.logoutUser)
   $('#passChange').on('submit', appEvents.resetPassword)
+  $('#survey').on('submit', appEvents.createSurvey)
 })
 
 // tutorial from: http://blog.appliedinformaticsinc.com/how-to-addremove-input-fields-dynamically-with-jquery/
