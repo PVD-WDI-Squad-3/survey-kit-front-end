@@ -11,7 +11,13 @@ $(() => {
 // const example = require('./example')
 
 // use require without a reference to ensure a file is bundled
-require('./example')
+// require('./example')
+const appEvents = require('../scripts/app/events.js')
+
+$(() => {
+  $('#registration').on('submit', appEvents.registerUser)
+  $('#login').on('submit', appEvents.loginUser)
+})
 
 // tutorial from: http://blog.appliedinformaticsinc.com/how-to-addremove-input-fields-dynamically-with-jquery/
 $(document).ready(function () {
@@ -26,7 +32,7 @@ $(document).ready(function () {
       x++
       $(wrapper).append('<div class="form-group"><label for="title"></label>' +
 '<input class="form-control col-md-11" id="answer" type="email" placeholder="" name="author"/>' +
-'<a href="#" class="remove_field"><i class="fa fa-times" aria-hidden="true"></i></a></div>')
+'<a href="#" class="remove_field"><i class="fa fa-times"></a></div>')
     }
   })
 
@@ -36,10 +42,10 @@ $(document).ready(function () {
   })
 })
 
-$(() => {
+$(document).ready(function () {
   $('#passChange').hide()
   $('#log-out').hide()
   $('#showChangePassButton').hide()
   $('#close').hide()
-  $('#login').hide()
+  $('#login').show()
 })
