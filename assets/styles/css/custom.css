@@ -1,3 +1,8 @@
+html *
+{
+   font-family: 'Quicksand', sans-serif !important;
+}
+
 label {
   margin-right: .8rem;
 }
@@ -16,4 +21,24 @@ label {
 
 .bg-light {
   background-color: #c6c6c6!important;
+}
+
+.btn {
+  font-variant: small-caps !important;
+  font-size: 1.25rem;
+}
+
+.btn-primary {
+  background-color: #000;
+  border-color: #000;
+}
+
+.btn-info {
+  background-color: #9adbf4;
+  border-color: #9adbf4;
+}
+
+.modal-header {
+  background-color: #868e96;
+  color: #9adbf4;
 }
