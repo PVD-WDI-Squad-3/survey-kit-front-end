@@ -42,3 +42,15 @@ label {
   background-color: #868e96;
   color: #9adbf4;
 }
+
+.col-6 {
+  margin: 10px;
+}
+
+#log-out-btn {
+padding: .2rem .60rem;
+}
+
+#dashboard-main {
+  background-color: #f8f9fa;
+}
