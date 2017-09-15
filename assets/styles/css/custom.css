@@ -4,3 +4,16 @@ label {
 .modal-footer {
   border-top: none;
 }
+
+.jumbotron {
+  background-color: #f8f9fa;
+}
+
+.jumbotron-heading {
+  font-family: 'Quicksand', sans-serif;
+  color: #9adbf4;
+}
+
+.bg-light {
+  background-color: #c6c6c6!important;
+}
