@@ -26,7 +26,7 @@ $(document).ready(function () {
       x++
       $(wrapper).append('<div class="form-group"><label for="title"></label>' +
 '<input class="form-control col-md-11" id="answer" type="email" placeholder="" name="author"/>' +
-'<a href="#" class="remove_field"><i class="fa fa-times"></a></div>')
+'<a href="#" class="remove_field"><i class="fa fa-times" aria-hidden="true"></i></a></div>')
     }
   })
 
