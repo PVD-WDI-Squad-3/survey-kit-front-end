@@ -17,6 +17,8 @@ const appEvents = require('../scripts/app/events.js')
 $(() => {
   $('#registration').on('submit', appEvents.registerUser)
   $('#login').on('submit', appEvents.loginUser)
+  $('#log-out-btn').on('click', appEvents.logoutUser)
+  $('#passChange').on('submit', appEvents.resetPassword)
 })
 
 // tutorial from: http://blog.appliedinformaticsinc.com/how-to-addremove-input-fields-dynamically-with-jquery/
@@ -43,7 +45,7 @@ $(document).ready(function () {
 })
 
 $(document).ready(function () {
-  $('#passChange').hide()
+  $('#passChange').show()
   $('#log-out').hide()
   $('#showChangePassButton').hide()
   $('#close').hide()

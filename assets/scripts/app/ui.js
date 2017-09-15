@@ -5,17 +5,16 @@ const appEvents = require('./events.js')
 
 const onSignupSuccess = function () {
   console.log('sign-up success')
-  // $('#errorMessage').empty()
-  // $('#registration').find('input:text').val('')
-  // $('#registration').find('input:password').val('')
-  // $('#yayMessage').prepend('<div class="row" style="text-align: center; color: black"> <p>You are now signed up. Login. </p></div>')
-  // // console.log('Signup Successful!')
+  $('#errorMessage').empty()
+  $('#registration').find('input:text').val('')
+  $('#registration').find('input:password').val('')
+  $('#signUpSuccess').prepend('<div class="row" style="text-align: center; color: black"> <p>You are now signed up. Login. </p></div>')
 }
 
 const onSignupFailure = () => {
   // console.log('There was problem signing up, please try again!')
   console.log('sign-up fail')
-  // $('#errorMessage').prepend('<div class="row" style="text-align: center; color: red"> <p> ' + 'Passwords do not match or username is already taken. Try again!' + ' </p></div>')
+  $('#errorMessage').prepend('<div class="row" style="text-align: center; color: red"> <p> ' + 'Passwords do not match or username is already taken. Try again!' + ' </p></div>')
 }
 
 const onSigninSuccess = function (data) {
@@ -27,9 +26,30 @@ const onSigninFailure = (error) => {
   console.log('Invalid username or password.')
   // $('#errorMessage').prepend('<div class="row" style="text-align: center; color: red"> <p> ' + 'Passwords do not match or password is incorrect. Try again!' + ' </p></div>')
 }
+
+const onLogoutSuccess = function (app) {
+  console.log('sign-out successful')
+}
+
+const onLogoutFailure = function () {
+  console.log('error signing out')
+}
+
+const onResetSuccess = function () {
+  console.log('password reset successful')
+}
+
+const onResetFailure = function () {
+  console.log('password reset failed')
+}
+
 module.exports = {
   onSignupSuccess,
   onSignupFailure,
   onSigninSuccess,
-  onSigninFailure
+  onSigninFailure,
+  onLogoutSuccess,
+  onLogoutFailure,
+  onResetSuccess,
+  onResetFailure
 }
