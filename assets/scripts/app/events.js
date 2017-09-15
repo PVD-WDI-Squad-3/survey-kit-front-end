@@ -22,6 +22,7 @@ const registerUser = function (event) {
 const loginUser = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
+  console.log('hi')
   appApi.userLogin(data)
   .then(appUi.onSigninSuccess)
   .catch(appUi.onSigninFailure)
