@@ -27,9 +27,34 @@ const userLogin = function (data) {
   })
 }
 
+const userLogout = function (id) {
+  console.log('api file')
+  return $.ajax({
+    url: app.host + '/sign-out/' + app.user.id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    }
+  })
+}
+
+const passwordReset = function (data) {
+  // console.log(data)
+  return $.ajax({
+    url: app.host + '/change-password/' + app.user.id,
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    },
+    method: 'PATCH',
+    data
+  })
+}
+
 module.exports = {
   addUser,
-  userLogin
+  userLogin,
+  passwordReset,
+  userLogout
 }
 
 // : {

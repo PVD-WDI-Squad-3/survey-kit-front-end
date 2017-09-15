@@ -27,7 +27,25 @@ const loginUser = function (event) {
   .catch(appUi.onSigninFailure)
 }
 
+const logoutUser = function () {
+  // const data = getFormFields(this)
+  event.preventDefault(event)
+  appApi.userLogout()
+  .then(appUi.onLogoutSuccess)
+  .catch(appUi.onLogoutFailure)
+}
+
+const resetPassword = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  appApi.passwordReset(data)
+  .then(appUi.onResetSuccess)
+  .catch(appUi.onResetFailure)
+}
+
 module.exports = {
   registerUser,
-  loginUser
+  loginUser,
+  logoutUser,
+  resetPassword
 }
