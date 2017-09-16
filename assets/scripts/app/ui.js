@@ -28,6 +28,8 @@ const onSigninSuccess = function (data) {
   $('#login').hide()
   $('.modal-footer').hide()
   $('#myAccountButton').show()
+  $('#log-out-btn').show()
+  $('#log-out-btn2').show()
   console.log('sign in successful')
 }
 
@@ -43,6 +45,8 @@ const onLogoutSuccess = function (app) {
   $('#myAccountButton').hide()
   $('#login').show()
   $('.modal-footer').show()
+  $('#log-out-btn').hide()
+  $('#log-out-btn2').hide()
 }
 
 const onLogoutFailure = function () {
