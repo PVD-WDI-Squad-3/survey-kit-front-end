@@ -54,10 +54,18 @@ const createSurvey = function (event) {
   .catch(appUi.onCreateFailure)
 }
 
+const viewSurveys = function (event) {
+  event.preventDefault()
+  appApi.getSurveys()
+ .then(appUi.onSurveysSuccess)
+ .catch(appUi.onSurveysFailure)
+}
+
 module.exports = {
   registerUser,
   loginUser,
   logoutUser,
   resetPassword,
-  createSurvey
+  createSurvey,
+  viewSurveys
 }

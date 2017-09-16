@@ -58,21 +58,28 @@ const newSurvey = function (data) {
     },
     method: 'POST',
     data: {
-    "survey": {
-      "title": data.title,
-      "questions": [{
-        "content": {
-          "question": data.question,
-          "answers": [
-            {"answer": data.answer1},
-            {"answer": data.answer2},
-            {"answer": data.answer3},
-            {"answer": data.answer4}
-          ]
-        }
-      }]
+      'survey': {
+        'title': data.title,
+        'questions': [{
+          'content': {
+            'question': data.question,
+            'answers': [
+                {'answer': data.answer1},
+                {'answer': data.answer2},
+                {'answer': data.answer3},
+                {'answer': data.answer4}
+            ]
+          }
+        }]
+      }
     }
-  }
+  })
+}
+
+const getSurveys = function () {
+  return $.ajax({
+    url: app.host + '/surveys',
+    method: 'GET'
   })
 }
 
@@ -81,7 +88,8 @@ module.exports = {
   userLogin,
   passwordReset,
   userLogout,
-  newSurvey
+  newSurvey,
+  getSurveys
 }
 
 // : {
