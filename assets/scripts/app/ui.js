@@ -37,6 +37,7 @@ const onSigninSuccess = function (data) {
 const onSigninFailure = (error) => {
   $('.errorMessageModalLogin').empty()
   console.log('Invalid username or password.')
+  console.log(error)
   $('.errorMessageModalLogin').prepend('<div class="row" style="text-align: center; color: red"> <p> ' + 'Your username or password is incorrect. Try again!' + ' </p></div>')
 }
 
