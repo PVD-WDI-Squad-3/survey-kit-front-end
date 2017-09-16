@@ -45,6 +45,7 @@ $(document).ready(function () {
   })
 })
 
+// on document ready
 $(document).ready(function () {
   $('#passChange').show()
   $('#log-out').hide()

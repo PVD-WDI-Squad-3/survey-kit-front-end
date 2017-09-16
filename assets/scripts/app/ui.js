@@ -3,6 +3,7 @@
 const app = require('../app.js')
 const appEvents = require('./events.js')
 
+// on sign up success
 const onSignupSuccess = function () {
   console.log('sign-up success')
   $('#errorMessage').empty()
