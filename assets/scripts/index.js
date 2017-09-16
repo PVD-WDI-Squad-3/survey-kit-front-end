@@ -45,9 +45,19 @@ $(document).ready(function () {
 })
 
 $(document).ready(function () {
-  $('#passChange').show()
+  $('#passChange').hide()
   $('#log-out').hide()
   $('#showChangePassButton').hide()
   $('#close').hide()
   $('#login').show()
+  $('#myAccountButton').hide()
+  $('.myAccountSection').hide()
+  $('#errorMessageModalLogin').hide()
+})
+
+$(document).on('click', '#myAccountButton', function (e) {
+  e.preventDefault()
+  $('.myAccountSection').show()
+  $('#passChange').show()
+  $('#errorMessageModalLogin').show()
 })

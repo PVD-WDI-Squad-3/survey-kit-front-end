@@ -14,21 +14,33 @@ const onSignupSuccess = function () {
 const onSignupFailure = () => {
   // console.log('There was problem signing up, please try again!')
   console.log('sign-up fail')
-  $('#errorMessage').prepend('<div class="row" style="text-align: center; color: red"> <p> ' + 'Passwords do not match or username is already taken. Try again!' + ' </p></div>')
+  $('#errorMessageModalSignUp').prepend('<div class="row" style="text-align: center; color: red"> <p> ' + 'Passwords do not match or username is already taken. Try again!' + ' </p></div>')
 }
 
 const onSigninSuccess = function (data) {
   app.user = data.user
+  // $('#passChange').show()
+  $('#login').find('input:text').val('')
+  $('#login').find('input:password').val('')
+  // $('#loginModal').hide('hide')
+  $('#login').hide()
+  $('.modal-footer').hide()
+  $('#myAccountButton').show()
   console.log('sign in successful')
 }
 
 const onSigninFailure = (error) => {
+  $('.errorMessageModalLogin').empty()
   console.log('Invalid username or password.')
-  // $('#errorMessage').prepend('<div class="row" style="text-align: center; color: red"> <p> ' + 'Passwords do not match or password is incorrect. Try again!' + ' </p></div>')
+  $('.errorMessageModalLogin').prepend('<div class="row" style="text-align: center; color: red"> <p> ' + 'Your username or password is incorrect. Try again!' + ' </p></div>')
 }
 
 const onLogoutSuccess = function (app) {
   console.log('sign-out successful')
+  $('.errorMessageModalLogin').empty()
+  $('#myAccountButton').hide()
+  $('#login').show()
+  $('.modal-footer').show()
 }
 
 const onLogoutFailure = function () {
