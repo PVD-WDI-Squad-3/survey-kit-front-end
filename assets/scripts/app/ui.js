@@ -19,7 +19,7 @@ const onSignupFailure = () => {
 
 const onSigninSuccess = function (data) {
   app.user = data.user
-  //$('#login input').not('.submit').val('')
+  $('#login input').not('.submit').val('')
   console.log('sign in successful')
 }
 
@@ -38,6 +38,7 @@ const onLogoutFailure = function () {
 
 const onResetSuccess = function () {
   console.log('password reset successful')
+  $('#passChange input').not('.submit').val('')
 }
 
 const onResetFailure = function () {
