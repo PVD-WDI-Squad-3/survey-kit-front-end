@@ -18,6 +18,7 @@ $(() => {
   $('#registration').on('submit', appEvents.registerUser)
   $('#login').on('submit', appEvents.loginUser)
   $('#log-out-btn').on('click', appEvents.logoutUser)
+  $('#log-out-btn2').on('click', appEvents.logoutUser)
   $('#passChange').on('submit', appEvents.resetPassword)
   $('#survey').on('submit', appEvents.createSurvey)
 })
@@ -48,7 +49,8 @@ $(document).ready(function () {
 // on document ready
 $(document).ready(function () {
   $('#passChange').show()
-  $('#log-out').hide()
+  $('#log-out-btn').hide()
+  $('#log-out-btn2').hide()
   $('#showChangePassButton').hide()
   $('#close').hide()
   $('#login').show()
