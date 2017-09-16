@@ -77,6 +77,15 @@ const onSurveysFailure = function (error) {
   console.error(error)
 }
 
+const onFindSuccess = function (data) {
+  console.log(data)
+  console.log('Successfully fetched all surveys')
+}
+
+const onFindFailure = function (error) {
+  console.error(error)
+}
+
 module.exports = {
   onSignupSuccess,
   onSignupFailure,
@@ -89,5 +98,7 @@ module.exports = {
   onCreateSuccess,
   onCreateFailure,
   onSurveysSuccess,
-  onSurveysFailure
+  onSurveysFailure,
+  onFindSuccess,
+  onFindFailure
 }

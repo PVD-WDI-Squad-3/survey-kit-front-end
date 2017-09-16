@@ -83,13 +83,21 @@ const getSurveys = function () {
   })
 }
 
+const findAllSurveys = function () {
+  return $.ajax({
+    url: app.host + '/surveys',
+    method: 'GET'
+  })
+}
+
 module.exports = {
   addUser,
   userLogin,
   passwordReset,
   userLogout,
   newSurvey,
-  getSurveys
+  getSurveys,
+  findAllSurveys
 }
 
 // : {
