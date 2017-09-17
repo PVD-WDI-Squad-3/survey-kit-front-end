@@ -76,6 +76,7 @@ $(document).ready(function () {
   $('#showChangePassButton').hide()
   $('#loginButton2').hide()
   $('.surveyResults').hide()
+  $('.cancel').hide()
 })
 
 $(document).on('click', '#myAccountButton', function (e) {
@@ -91,6 +92,11 @@ $('#showCreateSurvey').click(function () {
 
 $('#showChangePassButton').click(function () {
   $('#chgpwModal').show()
+  $('#passChange').show()
+  $('#reset-success').empty()
+  $('#reset-fail').empty()
+  $('#myAccountButton2').hide()
+  $('.modal-footer-changepwd').show()
 })
 
 $('#view-surveys').click(function () {
