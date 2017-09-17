@@ -2,7 +2,7 @@
 
 const config = {
   apiOrigins: {
-    // production: 'https://blooming-stream-25969.herokuapp.com/'
+    // production: 'https://polar-fjord-39713.herokuapp.com/'
     production: 'http://localhost:4741'
   }
 }
