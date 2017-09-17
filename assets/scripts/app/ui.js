@@ -19,6 +19,7 @@ const onSignupFailure = () => {
 }
 
 const onSigninSuccess = function (data) {
+  console.log(data.user)
   app.user = data.user
   $('#login input').not('.submit').val('')
   // $('#passChange').show()
@@ -72,6 +73,29 @@ const onCreateFailure = function (error) {
   console.error(error)
 }
 
+const onSurveysSuccess = function (data) {
+  const surveys = data.surveys
+  let userSurveys = surveys.map(function(survey) {
+    return surveys._owner === app.user.id
+  })
+  console.log(app.user)
+  console.log(userSurveys)
+  console.log("Fetched Survey Success!")
+}
+
+const onSurveysFailure = function (error) {
+  console.error(error)
+}
+
+const onFindSuccess = function (data) {
+  console.log(data)
+  console.log('Successfully fetched all surveys')
+}
+
+const onFindFailure = function (error) {
+  console.error(error)
+}
+
 module.exports = {
   onSignupSuccess,
   onSignupFailure,
@@ -82,5 +106,9 @@ module.exports = {
   onResetSuccess,
   onResetFailure,
   onCreateSuccess,
-  onCreateFailure
+  onCreateFailure,
+  onSurveysSuccess,
+  onSurveysFailure,
+  onFindSuccess,
+  onFindFailure
 }
