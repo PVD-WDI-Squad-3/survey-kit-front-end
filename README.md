@@ -11,7 +11,7 @@ For our first team project, we followed the assigned prompt to build a custom su
 Make an app that can be used to create custom surveys (for instance, asking "what should we eat for lunch today?" or "On a scale of 0-5, how well did you understand what we just learned?") and collect the responses on a dashboard for that particular survey. Each live survey should be hosted at a unique, randomly-generated URL.
 
 
-### Approach
+### Our approach
 As a team, we decided to call the app “SurveyKit.” We also used a kitten icon for our logo as a play on the word "kit."   For the styling, we opted for a cool color theme to evoke a calm and pleasant UI experience.  We used custom Bootstrap to style the front-end as well as the [General Assembly-issued browser template] (https://git.generalassemb.ly/ga-wdi-boston/browser-template).
 
 We started by planning our wireframes and the data modeling to determine our schema and validations.  It seemed straightforward to go with this basic structure and template so we could move on to coding and styling.
