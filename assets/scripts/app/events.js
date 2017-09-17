@@ -55,6 +55,7 @@ const createSurvey = function(event) {
 }
 
 const viewSurveys = function(event) {
+  console.log('working')
   event.preventDefault()
   appApi.getSurveys()
     .then(appUi.onSurveysSuccess)

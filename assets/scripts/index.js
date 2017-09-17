@@ -27,13 +27,14 @@ $(() => {
     event.preventDefault()
     let deleteId = $(this).attr('id')
     appEvents.deleteSurvey(deleteId)
+  })
 
   $(document).on('click', '.view-results', function(event) {
     event.preventDefault()
     let surveyId = $(this).attr('id')
     appEvents.viewResults(surveyId)
   })
-})
+
 
 // tutorial from: http://blog.appliedinformaticsinc.com/how-to-addremove-input-fields-dynamically-with-jquery/
 $(document).ready(function () {
@@ -96,4 +97,5 @@ $('#showChangePassButton').click(function () {
 $('#view-surveys').click(function () {
   $('#survey').hide()
   $('#dashboard-messages-created').empty()
+})
 })

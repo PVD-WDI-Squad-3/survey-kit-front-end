@@ -84,6 +84,7 @@ const newSurvey = function(data) {
 }
 
 const getSurveys = function() {
+  console.log("working also")
   return $.ajax({
     url: app.host + '/surveys',
     method: 'GET'
@@ -97,11 +98,15 @@ const findAllSurveys = function() {
   })
 }
 
-
 const deleteSurvey = function(deleteId) {
   return $.ajax({
-    url: app.host + '/survey/' + deleteId,
+    url: app.host + '/surveys/' + deleteId,
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    },
     method: 'DELETE'
+  })
+}
 
 const viewSurveyResults = function (surveyId) {
   return $.ajax({
