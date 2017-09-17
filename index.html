@@ -55,7 +55,7 @@
 
       <br>
       <br>
-        <h2 class="jumbotron-heading">Build your survey in a pinch!</h2>
+        <h1 class="jumbotron-heading">Build your survey in a pinch!</h1>
 
         <!-- Button trigger for register -->
       <br>
@@ -71,9 +71,6 @@
   <div class="container">
 
 
-
-
-      <p>This is our survey kit site for Team Project.</p>
 <div class="mainDashboard">
 
           <!-- <div class="col-md-3 pull-md-9"><form id="login1" class="form-signin">
@@ -95,7 +92,7 @@
 
 
 
-<!-- <form id="passChange">
+<!-- <form id="passChange2">
   <p> Change Password </p>
   <div class="input-group">
     <label for="oldPassword"> Old Password </label>
@@ -235,24 +232,23 @@
                             <label for="newPassword"> New Password </label>
                             <input type="password" class="form-control" name="passwords[new]" placeholder="new password">
                           </div>
-                          <!-- <input type="submit" name="submit" class="btn btn-info submit" value="Change Password"> -->
-
-                        <!-- </form> -->
                       </div>
-
                     </div>
-                  </div>
-                  <div class="modal-footer">
+                  <!-- </div> -->
+                  <br>
+                  <div class="modal-footer-changepwd">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
                     <input type="submit" class="btn btn-info submit" name="submit" value="change password">
                   </div>
-
                   </form>
+                  <br>
+                  <button type="button" id="myAccountButton2" class="btn btn-secondary" style="background-color: #000" data-toggle="" data-target="" data-dismiss="modal">Go To My Account</button>
+                  <br>
+                </div>
               </div>
-            </div>
-        </div>
+          </div>
+      </div>
     </div>
-  </div>
 
   <!-- model for change-password end_________________________________________ -->
 
@@ -264,7 +260,11 @@
 <p>My Account</p>
 </div>
 
-<button type="button" class="btn btn-secondary" id="showCreateSurvey" style="background-color: #000">create a survey</button>     <button id="view-surveys" type="button" class="btn btn-secondary" style="background-color: #000"> View your surveys </button>   <button id="find-surveys" type="button" class="btn btn-secondary" style="background-color: #000"> Take a survey </button>   <button id="showGoToResults" type="button" class="btn btn-secondary" style="background-color: #000" data-toggle="dashboard" data-target="#dashboard-main">go to survey results</button>    <button type="Submit" id="showChangePassButton" class="btn btn-info " data-toggle="modal" data-target="#chgpwModal">Change Password</button>
+<button type="button" class="btn btn-secondary" id="showCreateSurvey" style="background-color: #000">create a survey</button>
+<button id="view-surveys" type="button" class="btn btn-secondary" style="background-color: #000"> View your surveys </button>
+<button id="find-surveys" type="button" class="btn btn-secondary" style="background-color: #000"> Take a survey </button>
+<button id="showGoToResults" type="button" class="btn btn-secondary" style="background-color: #000" data-toggle="dashboard" data-target="#dashboard-main">go to survey results</button>
+<button type="Submit" id="showChangePassButton" class="btn btn-info " data-toggle="modal" data-target="#chgpwModal">Change Password</button>
 <br>
 <br>
 <!-- add answer popper form -->
@@ -307,7 +307,13 @@
 <br>
 <br>
 <!--dashboard survey results begin________________________________________ -->
+
+<div class="view-surveys"></div>
+
+
 <div class="surveyResults">
+
+
 
 <div class="jumbotron">
         <h1 class="display-3">Survey Results</h1>

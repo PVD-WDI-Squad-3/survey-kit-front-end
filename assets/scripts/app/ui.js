@@ -38,6 +38,7 @@ const onSigninSuccess = function (data) {
   $('#login').hide()
   $('.modal-footer-login').hide()
   $('#myAccountButton').show()
+  $('#myAccountButton2').hide()
   $('#log-out-btn').show()
   $('#log-out-btn2').show()
   $('#showCreateSurvey').show()
@@ -45,6 +46,8 @@ const onSigninSuccess = function (data) {
   $('#find-surveys').show()
   $('#showGoToResults').show()
   $('#showChangePassButton').show()
+  $('#passChange').show()
+  $('.modal-footer-changepwd').show()
   console.log('sign in successful')
 }
 
@@ -58,6 +61,7 @@ const onLogoutSuccess = function (app) {
   console.log('sign-out successful')
   $('.errorMessageModalLogin').empty()
   $('#myAccountButton').hide()
+  $('#myAccountButton2').hide()
   $('#login').show()
   $('.modal-footer-login').show()
   $('#registration').show()
@@ -81,6 +85,9 @@ const onLogoutFailure = function () {
 const onResetSuccess = function () {
   console.log('password reset successful')
   $('#passChange input').not('.submit').val('')
+  $('#passChange').hide()
+  $('.modal-footer-changepwd').hide()
+  $('#myAccountButton2').show()
 }
 
 const onResetFailure = function () {
