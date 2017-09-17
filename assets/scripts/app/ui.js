@@ -10,10 +10,12 @@ const onSignupSuccess = function () {
   $('#errorMessageModalSignUp').empty()
   $('#registration').hide()
   $('.modal-footer-reg').hide()
+  $('#loginButton2').show()
+  $('.cancel').show()
   // $('#loginButton2').show()
   $('#registration').find('input:text').val('')
   $('#registration').find('input:password').val('')
-  $('#signUpSuccess').prepend('<div class="row" style="text-align: center; color: black"> <p>You are now signed up. Login. </p></div>')
+  $('#signUpSuccess').prepend('<div class="row" style="text-align: center; color: black"> <p>You are now signed up. Please login. </p></div>')
 }
 
 const onSignupFailure = () => {
@@ -83,15 +85,19 @@ const onLogoutFailure = function () {
 }
 
 const onResetSuccess = function () {
+  $('#reset-success').empty()
   console.log('password reset successful')
   $('#passChange input').not('.submit').val('')
   $('#passChange').hide()
   $('.modal-footer-changepwd').hide()
   $('#myAccountButton2').show()
+  $('#reset-success').prepend('<div class="row" style="text-align: center; color: black"> <p>Your password has been reset.</p></div>')
 }
 
 const onResetFailure = function () {
   console.log('password reset failed')
+  $('#reset-fail').empty()
+  $('#reset-fail').prepend('<div class="row" style="text-align: center; color: red"> <p>Your password has been reset.</p></div>')
 }
 
 const onCreateSuccess = function (data) {
