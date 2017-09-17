@@ -7,6 +7,10 @@ const app = require('../app.js')
 const onSignupSuccess = function () {
   console.log('sign-up success')
   $('#errorMessage').empty()
+  $('#errorMessageModalSignUp').empty()
+  $('#registration').hide()
+  $('.modal-footer-reg').hide()
+  // $('#loginButton2').show()
   $('#registration').find('input:text').val('')
   $('#registration').find('input:password').val('')
   $('#signUpSuccess').prepend('<div class="row" style="text-align: center; color: black"> <p>You are now signed up. Login. </p></div>')
@@ -15,6 +19,10 @@ const onSignupSuccess = function () {
 const onSignupFailure = () => {
   // console.log('There was problem signing up, please try again!')
   console.log('sign-up fail')
+  $('#errorMessageModalSignUp').empty()
+  $('#errorMessage').empty()
+  $('#registration').find('input:text').val('')
+  $('#registration').find('input:password').val('')
   $('#errorMessageModalSignUp').prepend('<div class="row" style="text-align: center; color: red"> <p> ' + 'Passwords do not match or username is already taken. Try again!' + ' </p></div>')
 }
 
@@ -27,10 +35,14 @@ const onSigninSuccess = function (data) {
   $('#login').find('input:password').val('')
 // $('#loginModal').hide('hide')
   $('#login').hide()
-  $('.modal-footer').hide()
+  $('.modal-footer-login').hide()
   $('#myAccountButton').show()
   $('#log-out-btn').show()
   $('#log-out-btn2').show()
+  $('#showCreateSurvey').show()
+  $('#view-surveys').show()
+  $('#find-surveys').show()
+  $('#showGoToResults').show()
   console.log('sign in successful')
 }
 
@@ -45,9 +57,19 @@ const onLogoutSuccess = function (app) {
   $('.errorMessageModalLogin').empty()
   $('#myAccountButton').hide()
   $('#login').show()
-  $('.modal-footer').show()
+  $('.modal-footer-login').show()
+  $('#registration').show()
+  $('.modal-footer-reg').show()
   $('#log-out-btn').hide()
   $('#log-out-btn2').hide()
+  $('#showCreateSurvey').hide()
+  $('#view-surveys').hide()
+  $('#find-surveys').hide()
+  $('#showGoToResults').hide()
+  $('#passChange').hide()
+  $('#errorMessage').empty()
+  $('#errorMessageModalSignUp').empty()
+  $('#signUpSuccess').empty()
 }
 
 const onLogoutFailure = function () {
@@ -67,6 +89,7 @@ const onCreateSuccess = function (data) {
   console.log(data)
   console.log('Survey Created!')
   $('#survey input').not('.submit').val('')
+  $('.dashboard-messages-created').prepend('<div class="row" style="text-align: center; color: black"> <p>Your survey has been created. </p></div>')
 }
 
 const onCreateFailure = function (error) {

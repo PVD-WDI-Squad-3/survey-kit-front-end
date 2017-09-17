@@ -47,7 +47,7 @@
 
     <div class="container-fluid">
 
-<section class="jumbotron text-center" style="background-image: url(); background-size: 100% 100%;">
+<section class="jumbotron text-center" style="background-image: url(https://i.imgur.com/cpQYkRW.jpg); background-size: 100% 100%;">
       <div class="container">
 
         <h3><i class="mdi-content-send brown-text"></i></h3>
@@ -74,10 +74,10 @@
 
 
       <p>This is our survey kit site for Team Project.</p>
+<div class="mainDashboard">
 
 
-
-
+<div class="dashboard-messages-created"></div>
 
           <!-- <div class="col-md-3 pull-md-9"><form id="login1" class="form-signin">
             <p> Login</p>
@@ -152,13 +152,18 @@
 
                     </div>
                   </div>
-                  <div class="modal-footer">
+                  <br>
+                  <div class="modal-footer-reg">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
                     <input type="submit" class="btn btn-info submit" name="submit" value="register">
                   </div>
                   <div id="signUpSuccess"></div>
+                  <div id="errorMessageModalSignUp"></div>
                   </form>
               </div>
+              <br>
+              <button type="button" id="loginButton2" class="btn btn-secondary" style="background-color: #000" data-target="#loginModal">login</button>
+              <br>
             </div>
         </div>
     </div>
@@ -192,14 +197,15 @@
                         <div class="errorMessageModalLogin"></div>
                     </div>
                   </div>
-                  <div class="modal-footer">
+                  <br>
+                  <div class="modal-footer-login">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
                     <button type="submit" class="btn btn-info loginButton" name="submit" value="login">login</button>
                     <!-- <input type="submit" class="btn btn-info" name="submit" value="login" data-dismiss="modal" > -->
                   </div>
                   </form>
                   <br>
-                  <button type="button" id="myAccountButton" class="btn btn-secondary" style="background-color: #000" data-toggle="" data-target="" data-dismiss="modal">Go To My Account</button>   <button class="btn btn-info" id="log-out-btn2"> Log Out </button>
+                  <button type="button" id="myAccountButton" class="btn btn-secondary" style="background-color: #000" data-toggle="" data-target="" data-dismiss="modal">Go To My Account</button>   <button class="btn btn-info" id="log-out-btn2" data-dismiss="modal"> Log Out </button>
                   <br>
               </div>
             </div>
@@ -208,7 +214,7 @@
   </div><!-- modal for login end_________________________________________ -->
 
   <!-- modal for change-password start_______________________________________ -->
-  <div class="container">
+  <!-- <div class="container">
       <div class="modal fade" id="chgpwModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -217,9 +223,9 @@
                   <button type="button" class="close" data-dismiss="modal" aria-label="close">
                     <span aria-hidden="true">&times;</span>
                   </button>
-                </div>
+                </div> -->
 
-                <div class="modal-body">
+                <!-- <div class="modal-body">
                   <div class="row">
                       <div class="col-md-9 push-md-3 offset-md-3">
                         <form id="passChange">
@@ -234,7 +240,7 @@
                           </div>
                           <input type="submit" name="submit" class="btn btn-info submit" value="Change Password">
 
-                        <!-- </form> -->
+                        </form>
                       </div>
 
                     </div>
@@ -243,13 +249,15 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
                     <input type="submit" class="btn btn-info submit" name="submit" value="change password">
                   </div>
-                  <!-- <div id="signUpSuccess"></div> -->
+
                   </form>
               </div>
             </div>
         </div>
     </div>
-  </div><!-- model for change-password end_________________________________________ -->
+  </div> -->
+
+  <!-- model for change-password end_________________________________________ -->
 
 
 <br>
@@ -261,6 +269,9 @@
 <p>My Account</p>
 </div>
 
+<button type="button" class="btn btn-secondary" id="showCreateSurvey" style="background-color: #000">create a survey</button>
+<br>
+<br>
 <!-- add answer popper form -->
 <!-- beginning of survey form -->
 <form id="survey">
@@ -296,14 +307,14 @@
 <hr>
 <br>
 <br>
-<button type="button" class="btn btn-secondary" style="background-color: #000" data-toggle="dashboard" data-target="#dashboard-main">go to survey results</button>
+<button id="showGoToResults" type="button" class="btn btn-secondary" style="background-color: #000" data-toggle="dashboard" data-target="#dashboard-main">go to survey results</button>
 <br>
 <br>
 <hr>
 <br>
 <br>
 <!-- dashboard custom template start____________________________________________ -->
-<div class="container-fluid">
+<!-- <div class="container-fluid">
   <div class="row">
     <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
       <ul class="nav nav-pills flex-column">
@@ -321,9 +332,9 @@
           <a class="nav-link" href="#">Export</a>
         </li>
       </ul>
-    </nav>
+    </nav> -->
 
-    <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" id="dashboard-main" role="main">
+    <!-- <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" id="dashboard-main" role="main">
       <h1>Survey Dashboard</h1>
       <br>
       <br>
@@ -378,9 +389,14 @@
       </div>
     </main>
   </div>
-</div><!-- dashboard custom template end________________________________________ -->
+</div> -->
 
+<!-- dashboard custom template end________________________________________ -->
+</div>
   <!-- bootstrap cdn script links_______________________________________________ -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"> </script>
+
+</body>
+</html>
