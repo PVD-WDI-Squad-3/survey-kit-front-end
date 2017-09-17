@@ -50,7 +50,7 @@ $(document).ready(function () {
 
 // on document ready
 $(document).ready(function () {
-  $('#passChange').show()
+  $('#passChange').hide()
   $('#log-out-btn').hide()
   $('#log-out-btn2').hide()
   $('#showChangePassButton').hide()
@@ -59,6 +59,12 @@ $(document).ready(function () {
   $('#myAccountButton').hide()
   $('.myAccountSection').hide()
   $('#errorMessageModalLogin').hide()
+  $('#survey').hide()
+  $('#find-surveys').hide()
+  $('#view-surveys').hide()
+  $('#showGoToResults').hide()
+  $('#showCreateSurvey').hide()
+  $('#loginButton2').hide()
 })
 
 $(document).on('click', '#myAccountButton', function (e) {
@@ -66,4 +72,8 @@ $(document).on('click', '#myAccountButton', function (e) {
   $('.myAccountSection').show()
   $('#passChange').show()
   $('#errorMessageModalLogin').show()
+})
+
+$('#showCreateSurvey').click(function () {
+  $('#survey').show()
 })
