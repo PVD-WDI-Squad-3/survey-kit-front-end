@@ -74,6 +74,12 @@ const deleteSurvey = function(deleteId) {
     .catch(appUi.onDeleteFailure)
 }
 
+const viewResults = function (surveyId) {
+  appApi.viewSurveyResults(surveyId)
+  .then(appUi.onViewSuccess)
+  .catch(appUi.onViewFailure)
+}
+
 module.exports = {
   registerUser,
   loginUser,
@@ -82,5 +88,6 @@ module.exports = {
   createSurvey,
   viewSurveys,
   findSurveys,
-  deleteSurvey
+  deleteSurvey,
+  viewResults
 }

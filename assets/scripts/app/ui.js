@@ -3,8 +3,9 @@
 const app = require('../app.js')
 // const appEvents = require('./events.js')
 
-// on sign up success
-const onSignupSuccess = function() {
+
+// on sign up success -- this is the most recent
+const onSignupSuccess = function () {
   console.log('sign-up success')
   $('#errorMessage').empty()
   $('#errorMessageModalSignUp').empty()
@@ -30,19 +31,25 @@ const onSigninSuccess = function(data) {
   console.log(data.user)
   app.user = data.user
   $('#login input').not('.submit').val('')
-  // $('#passChange').show()
+  $('#passChange').show()
   $('#login').find('input:text').val('')
   $('#login').find('input:password').val('')
-  // $('#loginModal').hide('hide')
+
+// $('#loginModal').hide('hide')
+  $('#survey').hide()
   $('#login').hide()
   $('.modal-footer-login').hide()
   $('#myAccountButton').show()
+  $('#myAccountButton2').hide()
   $('#log-out-btn').show()
   $('#log-out-btn2').show()
   $('#showCreateSurvey').show()
   $('#view-surveys').show()
   $('#find-surveys').show()
   $('#showGoToResults').show()
+  $('#showChangePassButton').show()
+  $('#passChange').show()
+  $('.modal-footer-changepwd').show()
   console.log('sign in successful')
 }
 
@@ -56,16 +63,17 @@ const onLogoutSuccess = function(app) {
   console.log('sign-out successful')
   $('.errorMessageModalLogin').empty()
   $('#myAccountButton').hide()
+  $('#myAccountButton2').hide()
   $('#login').show()
   $('.modal-footer-login').show()
   $('#registration').show()
   $('.modal-footer-reg').show()
   $('#log-out-btn').hide()
   $('#log-out-btn2').hide()
-  $('#showCreateSurvey').hide()
-  $('#view-surveys').hide()
-  $('#find-surveys').hide()
-  $('#showGoToResults').hide()
+  // $('#showCreateSurvey').hide()
+  // $('#view-surveys').hide()
+  // $('#find-surveys').hide()
+  // $('#showGoToResults').hide()
   $('#passChange').hide()
   $('#errorMessage').empty()
   $('#errorMessageModalSignUp').empty()
@@ -79,6 +87,9 @@ const onLogoutFailure = function() {
 const onResetSuccess = function() {
   console.log('password reset successful')
   $('#passChange input').not('.submit').val('')
+  $('#passChange').hide()
+  $('.modal-footer-changepwd').hide()
+  $('#myAccountButton2').show()
 }
 
 const onResetFailure = function() {
@@ -106,7 +117,10 @@ const onSurveysSuccess = function(data) {
   }
   $('.view-surveys').append('<table class="table" id="user-surveys-table"> <thead> <tr> <th> Survey Title </th> <th>  </th> <th>  </th> <th> </th></tr> </thead> <tbody>')
   userSurveys.forEach(function(survey) {
+
     $('#user-surveys-table').append('<tr> <td>' + survey.title + ' </td> <td> <a href="javascript:" id="' + survey.id + '"> View Results </a> </td> <td> <a href="javascript:" class="delete-survey" id="' + survey.id + '"> Delete </a></tr>')
+    $('#user-surveys-table').append('<tr> <td>' + survey.title + ' </td> <td> <a href="javascript:" class="view-results" id="' + survey.id + '"> View Results </a> </td> <td> <a href="javascript:" id="' + survey.id + '"> Delete </a></tr>')
+
   })
     $('#user-surveys-table').append('</tbody> </table>')
   console.log(app.user)
@@ -135,6 +149,20 @@ const onDeleteFailure = function(error) {
   console.error(error)
 }
 
+const onViewSuccess = function (data) {
+  console.log(data)
+  let questions = data.survey.questions
+  console.log(questions)
+  let qArray = []
+  questions.forEach(function(question) {
+    console.log(question.content)
+  })
+}
+
+const onViewFailure = function (error) {
+  console.error(error)
+}
+
 module.exports = {
   onSignupSuccess,
   onSignupFailure,
@@ -151,5 +179,7 @@ module.exports = {
   onFindSuccess,
   onFindFailure,
   onDeleteSuccess,
-  onDeleteFailure
+  onDeleteFailure,
+  onViewSuccess,
+  onViewFailure
 }

@@ -97,10 +97,19 @@ const findAllSurveys = function() {
   })
 }
 
+
 const deleteSurvey = function(deleteId) {
   return $.ajax({
     url: app.host + '/survey/' + deleteId,
     method: 'DELETE'
+
+const viewSurveyResults = function (surveyId) {
+  return $.ajax({
+    url: app.host + '/surveys/' + surveyId,
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    },
+    method: 'GET'
   })
 }
 
@@ -112,7 +121,8 @@ module.exports = {
   newSurvey,
   getSurveys,
   findAllSurveys,
-  deleteSurvey
+  deleteSurvey,
+  viewSurveyResults
 }
 
 // : {
