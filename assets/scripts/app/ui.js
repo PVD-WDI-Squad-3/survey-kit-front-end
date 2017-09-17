@@ -1,7 +1,7 @@
 'use strict'
 
 const app = require('../app.js')
-const appEvents = require('./events.js')
+// const appEvents = require('../scripts/app/events.js')
 
 // on sign up success
 const onSignupSuccess = function () {
@@ -66,7 +66,7 @@ const onResetFailure = function () {
 
 const onCreateSuccess = function (data) {
   console.log(data)
-  console.log("Survey Created!")
+  console.log('survey created')
   $('#survey input').not('.submit').val('')
 }
 
