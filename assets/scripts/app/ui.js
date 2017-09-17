@@ -108,7 +108,7 @@ const onSurveysSuccess = function (data) {
   }
   $('.view-surveys').append('<table class="table" id="user-surveys-table"> <thead> <tr> <th> Survey Title </th> <th>  </th> <th>  </th> <th> </th></tr> </thead> <tbody>')
   userSurveys.forEach(function(survey) {
-    $('#user-surveys-table').append('<tr> <td>' + survey.title + ' </td> <td> <a href="javascript:" id="' + survey.id + '"> View Results </a> </td> <td> <a href="javascript:" id="' + survey.id + '"> Delete </a></tr>')
+    $('#user-surveys-table').append('<tr> <td>' + survey.title + ' </td> <td> <a href="javascript:" class="view-results" id="' + survey.id + '"> View Results </a> </td> <td> <a href="javascript:" id="' + survey.id + '"> Delete </a></tr>')
   })
     $('#user-surveys-table').append('</tbody> </table>')
   console.log(app.user)
@@ -129,6 +129,20 @@ const onFindFailure = function (error) {
   console.error(error)
 }
 
+const onViewSuccess = function (data) {
+  console.log(data)
+  let questions = data.survey.questions
+  console.log(questions)
+  let qArray = []
+  questions.forEach(function(question) {
+    console.log(question.content)
+  })
+}
+
+const onViewFailure = function (error) {
+  console.error(error)
+}
+
 module.exports = {
   onSignupSuccess,
   onSignupFailure,
@@ -143,5 +157,7 @@ module.exports = {
   onSurveysSuccess,
   onSurveysFailure,
   onFindSuccess,
-  onFindFailure
+  onFindFailure,
+  onViewSuccess,
+  onViewFailure
 }
