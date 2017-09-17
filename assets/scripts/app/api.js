@@ -1,6 +1,6 @@
 const app = require('./../app.js')
 
-const addUser = function (data) {
+const addUser = function(data) {
   console.log(data)
   return $.ajax({
     url: app.host + '/sign-up/',
@@ -10,14 +10,14 @@ const addUser = function (data) {
   })
 }
 
-const userLogin = function (data) {
+const userLogin = function(data) {
   console.log(data)
   return $.ajax({
     url: app.host + '/sign-in/',
     method: 'POST',
     // headers: {
-      // Authorization: 'Token token=' + app.user.token // store.user.token
-  // },
+    // Authorization: 'Token token=' + app.user.token // store.user.token
+    // },
     data: {
       'credentials': {
         'email': data.credentials.email,
@@ -27,7 +27,7 @@ const userLogin = function (data) {
   })
 }
 
-const userLogout = function (id) {
+const userLogout = function(id) {
   console.log('api file')
   return $.ajax({
     url: app.host + '/sign-out/' + app.user.id,
@@ -38,7 +38,7 @@ const userLogout = function (id) {
   })
 }
 
-const passwordReset = function (data) {
+const passwordReset = function(data) {
   // console.log(data)
   return $.ajax({
     url: app.host + '/change-password/' + app.user.id,
@@ -50,7 +50,7 @@ const passwordReset = function (data) {
   })
 }
 
-const newSurvey = function (data) {
+const newSurvey = function(data) {
   return $.ajax({
     url: app.host + '/surveys/',
     headers: {
@@ -63,11 +63,18 @@ const newSurvey = function (data) {
         'questions': [{
           'content': {
             'question': data.question,
-            'answers': [
-                {'answer': data.answer1},
-                {'answer': data.answer2},
-                {'answer': data.answer3},
-                {'answer': data.answer4}
+            'answers': [{
+                'answer': data.answer1
+              },
+              {
+                'answer': data.answer2
+              },
+              {
+                'answer': data.answer3
+              },
+              {
+                'answer': data.answer4
+              }
             ]
           }
         }]
@@ -76,17 +83,24 @@ const newSurvey = function (data) {
   })
 }
 
-const getSurveys = function () {
+const getSurveys = function() {
   return $.ajax({
     url: app.host + '/surveys',
     method: 'GET'
   })
 }
 
-const findAllSurveys = function () {
+const findAllSurveys = function() {
   return $.ajax({
     url: app.host + '/surveys',
     method: 'GET'
+  })
+}
+
+const deleteSurvey = function() {
+  return $.ajax({
+    url: app.host + '/survey',
+    method: 'DELETE'
   })
 }
 
@@ -97,7 +111,8 @@ module.exports = {
   userLogout,
   newSurvey,
   getSurveys,
-  findAllSurveys
+  findAllSurveys,
+  deleteSurvey
 }
 
 // : {
