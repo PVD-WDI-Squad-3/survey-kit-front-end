@@ -50,7 +50,7 @@ $(document).ready(function () {
 
 // on document ready
 $(document).ready(function () {
-  $('#passChange').show()
+  $('#passChange').hide()
   $('#log-out-btn').hide()
   $('#log-out-btn2').hide()
   $('#showChangePassButton').hide()
