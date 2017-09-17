@@ -3,6 +3,7 @@
 const app = require('../app.js')
 // const appEvents = require('./events.js')
 
+
 // on sign up success -- this is the most recent
 const onSignupSuccess = function () {
   console.log('sign-up success')
@@ -28,13 +29,14 @@ const onSignupFailure = () => {
   $('#errorMessageModalSignUp').prepend('<div class="row" style="text-align: center; color: red"> <p> ' + 'Passwords do not match or username is already taken. Try again!' + ' </p></div>')
 }
 
-const onSigninSuccess = function (data) {
+const onSigninSuccess = function(data) {
   console.log(data.user)
   app.user = data.user
   $('#login input').not('.submit').val('')
   $('#passChange').show()
   $('#login').find('input:text').val('')
   $('#login').find('input:password').val('')
+
 // $('#loginModal').hide('hide')
   $('#survey').hide()
   $('#login').hide()
@@ -59,7 +61,7 @@ const onSigninFailure = (error) => {
   $('.errorMessageModalLogin').prepend('<div class="row" style="text-align: center; color: red"> <p> ' + 'Your username or password is incorrect. Try again!' + ' </p></div>')
 }
 
-const onLogoutSuccess = function (app) {
+const onLogoutSuccess = function(app) {
   console.log('sign-out successful')
   $('.errorMessageModalLogin').empty()
   $('#myAccountButton').hide()
@@ -80,7 +82,7 @@ const onLogoutSuccess = function (app) {
   $('#signUpSuccess').empty()
 }
 
-const onLogoutFailure = function () {
+const onLogoutFailure = function() {
   console.log('error signing out')
 }
 
@@ -94,24 +96,24 @@ const onResetSuccess = function () {
   $('#reset-success').prepend('<div class="row" style="text-align: center; color: black"> <p>Your password has been reset.</p></div>')
 }
 
-const onResetFailure = function () {
+const onResetFailure = function() {
   console.log('password reset failed')
   $('#reset-fail').empty()
   $('#reset-fail').prepend('<div class="row" style="text-align: center; color: red"> <p>Your password has been reset.</p></div>')
 }
 
-const onCreateSuccess = function (data) {
+const onCreateSuccess = function(data) {
   console.log(data)
   console.log('Survey Created!')
   $('#survey input').not('.submit').val('')
   $('.dashboard-messages-created').prepend('<div class="row" style="text-align: center; color: black"> <p>Your survey has been created. </p></div>')
 }
 
-const onCreateFailure = function (error) {
+const onCreateFailure = function(error) {
   console.error(error)
 }
 
-const onSurveysSuccess = function (data) {
+const onSurveysSuccess = function(data) {
   const surveys = data.surveys
   let userSurveys = []
   for (let i = 0; i < surveys.length; i++) {
@@ -121,7 +123,10 @@ const onSurveysSuccess = function (data) {
   }
   $('.view-surveys').append('<table class="table" id="user-surveys-table"> <thead> <tr> <th> Survey Title </th> <th>  </th> <th>  </th> <th> </th></tr> </thead> <tbody>')
   userSurveys.forEach(function(survey) {
+
+    $('#user-surveys-table').append('<tr> <td>' + survey.title + ' </td> <td> <a href="javascript:" id="' + survey.id + '"> View Results </a> </td> <td> <a href="javascript:" class="delete-survey" id="' + survey.id + '"> Delete </a></tr>')
     $('#user-surveys-table').append('<tr> <td>' + survey.title + ' </td> <td> <a href="javascript:" class="view-results" id="' + survey.id + '"> View Results </a> </td> <td> <a href="javascript:" id="' + survey.id + '"> Delete </a></tr>')
+
   })
     $('#user-surveys-table').append('</tbody> </table>')
   console.log(app.user)
@@ -129,16 +134,24 @@ const onSurveysSuccess = function (data) {
   console.log("Fetched Survey Success!")
 }
 
-const onSurveysFailure = function (error) {
+const onSurveysFailure = function(error) {
   console.error(error)
 }
 
-const onFindSuccess = function (data) {
+const onFindSuccess = function(data) {
   console.log(data)
   console.log('Successfully fetched all surveys')
 }
 
-const onFindFailure = function (error) {
+const onFindFailure = function(error) {
+  console.error(error)
+}
+
+const onDeleteSuccess = function() {
+  console.log('Successfully deleted Survey')
+}
+
+const onDeleteFailure = function(error) {
   console.error(error)
 }
 
@@ -171,6 +184,8 @@ module.exports = {
   onSurveysFailure,
   onFindSuccess,
   onFindFailure,
+  onDeleteSuccess,
+  onDeleteFailure,
   onViewSuccess,
   onViewFailure
 }

@@ -23,6 +23,11 @@ $(() => {
   $('#survey').on('submit', appEvents.createSurvey)
   $('#view-surveys').on('click', appEvents.viewSurveys)
   $('#find-surveys').on('click', appEvents.findSurveys)
+  $(document).on('click', '.delete-survey', function(event) {
+    event.preventDefault()
+    let deleteId = $(this).attr('id')
+    appEvents.deleteSurvey(deleteId)
+
   $(document).on('click', '.view-results', function(event) {
     event.preventDefault()
     let surveyId = $(this).attr('id')
