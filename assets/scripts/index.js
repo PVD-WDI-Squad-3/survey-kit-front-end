@@ -58,7 +58,6 @@ $(document).ready(function () {
   $('#passChange').hide()
   $('#log-out-btn').hide()
   $('#log-out-btn2').hide()
-  $('#showChangePassButton').hide()
   $('#close').hide()
   $('#login').show()
   $('#myAccountButton').hide()
@@ -69,16 +68,22 @@ $(document).ready(function () {
   $('#view-surveys').hide()
   $('#showGoToResults').hide()
   $('#showCreateSurvey').hide()
+  $('#showChangePassButton').hide()
   $('#loginButton2').hide()
+  $('.surveyResults').hide()
 })
 
 $(document).on('click', '#myAccountButton', function (e) {
   e.preventDefault()
   $('.myAccountSection').show()
-  $('#passChange').show()
+  // $('#passChange').show()
   $('#errorMessageModalLogin').show()
 })
 
 $('#showCreateSurvey').click(function () {
   $('#survey').show()
+})
+
+$('#showChangePassButton').click(function () {
+  $('#chgpwModal').show()
 })
