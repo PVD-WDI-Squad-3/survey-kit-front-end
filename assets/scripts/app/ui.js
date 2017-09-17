@@ -3,7 +3,7 @@
 const app = require('../app.js')
 // const appEvents = require('./events.js')
 
-// on sign up success
+// on sign up success -- this is the most recent
 const onSignupSuccess = function () {
   console.log('sign-up success')
   $('#errorMessage').empty()
