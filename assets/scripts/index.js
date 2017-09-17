@@ -87,3 +87,8 @@ $('#showCreateSurvey').click(function () {
 $('#showChangePassButton').click(function () {
   $('#chgpwModal').show()
 })
+
+$('#view-surveys').click(function () {
+  $('#survey').hide()
+  $('#dashboard-messages-created').empty()
+})
