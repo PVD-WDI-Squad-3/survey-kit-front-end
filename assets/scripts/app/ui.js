@@ -81,9 +81,11 @@ const onSurveysSuccess = function (data) {
       userSurveys.push(surveys[i])
     }
   }
-  // let userSurveys = surveys.map(function(survey) {
-  //  return surveys._owner === app.user.id
-  // })
+  $('.view-surveys').append('<table class="table" id="user-surveys-table"> <thead> <tr> <th> Survey Title </th> <th>  </th> <th>  </th> <th> </th></tr> </thead> <tbody>')
+  userSurveys.forEach(function(survey) {
+    $('#user-surveys-table').append('<tr> <td>' + survey.title + ' </td> <td> <a href="javascript:" id="' + survey.id + '"> View Results </a> </td> <td> <a href="javascript:" id="' + survey.id + '"> Delete </a></tr>')
+  })
+    $('#user-surveys-table').append('</tbody> </table>')
   console.log(app.user)
   console.log(userSurveys)
   console.log("Fetched Survey Success!")
