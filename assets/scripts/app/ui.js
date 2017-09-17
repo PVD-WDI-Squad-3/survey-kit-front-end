@@ -45,6 +45,8 @@ const onSigninSuccess = function (data) {
   $('#find-surveys').show()
   $('#showGoToResults').show()
   $('#showChangePassButton').show()
+  $('#passChange').show()
+  $('.modal-footer-changepwd').show()
   console.log('sign in successful')
 }
 
@@ -81,6 +83,9 @@ const onLogoutFailure = function () {
 const onResetSuccess = function () {
   console.log('password reset successful')
   $('#passChange input').not('.submit').val('')
+  $('#passChange').hide()
+  $('.modal-footer-changepwd').hide()
+  $('#myAccountButton2').show()
 }
 
 const onResetFailure = function () {
