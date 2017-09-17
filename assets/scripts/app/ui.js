@@ -19,6 +19,7 @@ const onSignupFailure = () => {
 }
 
 const onSigninSuccess = function (data) {
+  console.log(data.user)
   app.user = data.user
   $('#login input').not('.submit').val('')
   // $('#passChange').show()
@@ -73,7 +74,12 @@ const onCreateFailure = function (error) {
 }
 
 const onSurveysSuccess = function (data) {
-  console.log(data)
+  const surveys = data.surveys
+  let userSurveys = surveys.map(function(survey) {
+    return surveys._owner === app.user.id
+  })
+  console.log(app.user)
+  console.log(userSurveys)
   console.log("Fetched Survey Success!")
 }
 
