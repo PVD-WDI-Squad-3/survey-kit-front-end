@@ -97,9 +97,9 @@ const findAllSurveys = function() {
   })
 }
 
-const deleteSurvey = function() {
+const deleteSurvey = function(deleteId) {
   return $.ajax({
-    url: app.host + '/survey',
+    url: app.host + '/survey/' + deleteId,
     method: 'DELETE'
   })
 }

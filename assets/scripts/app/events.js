@@ -68,9 +68,8 @@ const findSurveys = function(event) {
     .catch(appUi.onFindFailure)
 }
 
-const deleteSurvey = function(event) {
-  event.preventDefault()
-  appApi.deleteSurvey()
+const deleteSurvey = function(deleteId) {
+  appApi.deleteSurvey(deleteId)
     .then(appUi.onDeleteSuccess)
     .catch(appUi.onDeleteFailure)
 }
