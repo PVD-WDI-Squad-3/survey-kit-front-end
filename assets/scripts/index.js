@@ -23,6 +23,11 @@ $(() => {
   $('#survey').on('submit', appEvents.createSurvey)
   $('#view-surveys').on('click', appEvents.viewSurveys)
   $('#find-surveys').on('click', appEvents.findSurveys)
+  $(document).on('click', '.view-results', function(event) {
+    event.preventDefault()
+    let surveyId = $(this).attr('id')
+    appEvents.viewResults(surveyId)
+  })
 })
 
 // tutorial from: http://blog.appliedinformaticsinc.com/how-to-addremove-input-fields-dynamically-with-jquery/
