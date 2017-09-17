@@ -173,13 +173,16 @@ const onDeleteFailure = function(error) {
 }
 
 const onViewSuccess = function (data) {
+  $('.surveyResults').show()
   console.log(data)
   let questions = data.survey.questions
   console.log(questions)
   let qArray = []
   questions.forEach(function (question) {
     console.log(question.content)
+    $('#survey-results-table').append('<tr><td>' + question.content.question + ' </td> </tr> <tr> <td>' + question.content.answers[0].answer + '</td> <td>' + question.content.answers[1].answer + '</td> <td>' + question.content.answers[2].answer + '</td> <td>' + question.content.answers[3].answer + '</td> </tr> <tr> <td>' + question.content.answers[0].selected + '</td> <td>' + question.content.answers[1].selected + '</td> <td>' + question.content.answers[2].selected + '</td> <td>' + question.content.answers[3].selected + '</td> </tr>')
   })
+  $('#survey-results').append('</tbody> </table>')
 }
 
 const onViewFailure = function (error) {
