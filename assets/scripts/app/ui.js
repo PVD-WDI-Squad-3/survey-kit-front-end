@@ -75,9 +75,15 @@ const onCreateFailure = function (error) {
 
 const onSurveysSuccess = function (data) {
   const surveys = data.surveys
-  let userSurveys = surveys.map(function(survey) {
-    return surveys._owner === app.user.id
-  })
+  let userSurveys = []
+  for (let i = 0; i < surveys.length; i++) {
+    if (surveys[i]._owner === app.user.id) {
+      userSurveys.push(surveys[i])
+    }
+  }
+  // let userSurveys = surveys.map(function(survey) {
+  //  return surveys._owner === app.user.id
+  // })
   console.log(app.user)
   console.log(userSurveys)
   console.log("Fetched Survey Success!")
