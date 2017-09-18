@@ -89,6 +89,8 @@ $(() => {
 
   $('#showCreateSurvey').click(function () {
     $('#survey').show()
+    $('.view-surveys').hide()
+    // $('#user-surveys-table').hide()
   })
 
   $('#showChangePassButton').click(function () {
@@ -101,8 +103,8 @@ $(() => {
   })
 
   $('#view-surveys').click(function () {
-
     $('#survey').hide()
+    $('.view-surveys').show()
     $('#dashboard-messages-created').empty()
   })
 })
