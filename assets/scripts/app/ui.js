@@ -65,6 +65,7 @@ const onLogoutSuccess = function(app) {
   console.log('sign-out successful')
   $('.errorMessageModalLogin').empty()
   $('#myAccountButton').hide()
+  $('.myAccountSection').hide()
   $('#myAccountButton2').hide()
   $('#login').show()
   $('.modal-footer-login').show()
@@ -152,9 +153,9 @@ const onFindSuccess = function(data) {
   for (let i = 0; i < surveys.length; i++) {
     allSurveys.push(surveys[i])
   }
-  $('.find-surveys').append('<table class="table" id="user-surveys-table"> <thead> <tr> <th> Survey Title </th> <th>  </th> <th>  </th> <th> </th></tr> </thead> <tbody>')
+  $('.find-surveys').append('<table class="table" id="user-surveys-table-show"> <thead> <tr> <th> Survey Title </th> <th>  </th> <th>  </th> <th> </th></tr> </thead> <tbody>')
   allSurveys.forEach(function (survey) {
-    $('#user-surveys-table').append('<tr> <td>' + survey.title + ' </td> <td> <a href="javascript:" id="' + survey.id + '"> take survey </a> </td> </tr>')
+    $('#user-surveys-table-show').append('<tr> <td>' + survey.title + ' </td> <td> <a href="javascript:" id="' + survey.id + '"> take survey </a> </td> </tr>')
     // $('#user-surveys-table').append('<tr> <td>' + survey.title + ' </td> <td> <a href="javascript:" class="view-results" id="' + survey.id + '"> View Results </a> </td> <td> <a href="javascript:" id="' + survey.id + '"> Delete </a></tr>')
   })
 }
