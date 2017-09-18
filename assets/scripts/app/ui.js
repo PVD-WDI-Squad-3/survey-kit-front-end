@@ -18,6 +18,10 @@ const onSignupSuccess = function () {
   $('#signUpSuccess').prepend('<div class="row" style="text-align: center; color: black"> <p>You are now signed up. Please login. </p></div>')
 }
 
+const resetViews = () => {
+  $('#survey').empty()
+}
+
 const onSignupFailure = () => {
   // console.log('There was problem signing up, please try again!')
   console.log('sign-up fail')
@@ -147,13 +151,12 @@ const onFindFailure = function (error) {
 }
 
 const onDeleteSuccess = function () {
+  // getSurveys()
+  // .then(onSurveysSuccess)
   console.log('Successfully deleted Survey')
-//   let questions = data.survey.questions
-//   console.log(questions)
-//   let qArray = []
-//   questions.forEach(function(question) {
-//     console.log(question.content)
-//   })
+  // .catch(showSurveysFailure)
+  // console.log(error)
+  // destroySuccess()
 }
 
 const onDeleteFailure = function(error) {
