@@ -23,7 +23,8 @@ $(() => {
   $('#survey').on('submit', appEvents.createSurvey)
   $('#view-surveys').on('click', appEvents.viewSurveys)
   $('#find-surveys').on('click', appEvents.findSurveys)
-  $(document).on('click', '.delete-survey', function(event) {
+
+  $(document).on('click', '.delete-survey', function (event) {
     event.preventDefault()
     let deleteId = $(this).attr('id')
     appEvents.deleteSurvey(deleteId)
@@ -35,73 +36,73 @@ $(() => {
     appEvents.viewResults(surveyId)
   })
 
-
 // tutorial from: http://blog.appliedinformaticsinc.com/how-to-addremove-input-fields-dynamically-with-jquery/
-$(document).ready(function () {
-  const maxFields = 20
-  const wrapper = $('.items')
-  const addButton = $('.add_field_button')
+  $(document).ready(function () {
+    const maxFields = 20
+    const wrapper = $('.items')
+    const addButton = $('.add_field_button')
 
-  let x = 1
-  $(addButton).click(function (e) {
-    e.preventDefault()
-    if (x < maxFields) {
-      x++
-      $(wrapper).append('<div class="form-group"><label for="title"></label>' +
+    let x = 1
+    $(addButton).click(function (e) {
+      e.preventDefault()
+      if (x < maxFields) {
+        x++
+        $(wrapper).append('<div class="form-group"><label for="title"></label>' +
 '<input class="form-control col-md-11" id="answer" type="email" placeholder="" name="author"/>' +
 '<a href="#" class="remove_field"><i class="fa fa-times"></a></div>')
-    }
-  })
+      }
+    })
 
-  $(wrapper).on('click', '.remove_field', function (remove) {
-    remove.preventDefault()
-    $(this).parent('div').remove(); x--
+    $(wrapper).on('click', '.remove_field', function (remove) {
+      remove.preventDefault()
+      $(this).parent('div').remove(); x--
+    })
   })
-})
 
 // on document ready
-$(document).ready(function () {
-  $('#passChange').hide()
-  $('#log-out-btn').hide()
-  $('#log-out-btn2').hide()
-  $('#close').hide()
-  $('#login').show()
-  $('#myAccountButton').hide()
-  $('.myAccountSection').hide()
-  $('#errorMessageModalLogin').hide()
-  $('#survey').hide()
-  $('#find-surveys').hide()
-  $('#view-surveys').hide()
-  $('#showGoToResults').hide()
-  $('#showCreateSurvey').hide()
-  $('#showChangePassButton').hide()
-  $('#loginButton2').hide()
-  $('.surveyResults').hide()
-  $('.cancel').hide()
-})
+  $(document).ready(function () {
+    $('#passChange').hide()
+    $('#log-out-btn').hide()
+    $('#log-out-btn2').hide()
+    $('#close').hide()
+    $('#login').show()
+    $('#myAccountButton').hide()
+    $('.myAccountSection').hide()
+    $('#errorMessageModalLogin').hide()
+    $('#survey').hide()
+    $('#find-surveys').show()
+    $('#view-surveys').hide()
+    $('#showGoToResults').hide()
+    $('#showCreateSurvey').hide()
+    $('#showChangePassButton').hide()
+    $('#loginButton2').hide()
+    $('.surveyResults').hide()
+    $('.cancel').hide()
+  })
 
-$(document).on('click', '#myAccountButton', function (e) {
-  e.preventDefault()
-  $('.myAccountSection').show()
+  $(document).on('click', '#myAccountButton', function (e) {
+    e.preventDefault()
+    $('.myAccountSection').show()
   // $('#passChange').show()
-  $('#errorMessageModalLogin').show()
-})
+    $('#errorMessageModalLogin').show()
+  })
 
-$('#showCreateSurvey').click(function () {
-  $('#survey').show()
-})
+  $('#showCreateSurvey').click(function () {
+    $('#survey').show()
+  })
 
-$('#showChangePassButton').click(function () {
-  $('#chgpwModal').show()
-  $('#passChange').show()
-  $('#reset-success').empty()
-  $('#reset-fail').empty()
-  $('#myAccountButton2').hide()
-  $('.modal-footer-changepwd').show()
-})
+  $('#showChangePassButton').click(function () {
+    $('#chgpwModal').show()
+    $('#passChange').show()
+    $('#reset-success').empty()
+    $('#reset-fail').empty()
+    $('#myAccountButton2').hide()
+    $('.modal-footer-changepwd').show()
+  })
 
-$('#view-surveys').click(function () {
-  $('#survey').hide()
-  $('#dashboard-messages-created').empty()
-})
+  $('#view-surveys').click(function () {
+
+    $('#survey').hide()
+    $('#dashboard-messages-created').empty()
+  })
 })
