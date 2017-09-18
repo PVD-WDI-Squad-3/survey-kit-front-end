@@ -113,7 +113,7 @@ const onCreateSuccess = function(data) {
   console.log(data)
   console.log('Survey Created!')
   $('#survey input').not('.submit').val('')
-  $('.dashboard-messages-created').prepend('<div class="row" style="text-align: center; color: black"> <p>Your survey has been created. </p></div>')
+  $('.dashboard-messages-created').prepend('<div class="row" style="text-align: center; color: black"> <p>Your survey has been created. View your surveys</p></div>')
 }
 
 const onCreateFailure = function(error) {
@@ -128,11 +128,12 @@ const onSurveysSuccess = function(data) {
       userSurveys.push(surveys[i])
     }
   }
+  $('.view-surveys').empty()
   $('.view-surveys').append('<table class="table" id="user-surveys-table"> <thead> <tr> <th> Survey Title </th> <th>  </th> <th>  </th> <th> </th></tr> </thead> <tbody>')
   userSurveys.forEach(function(survey) {
 
     $('#user-surveys-table').append('<tr> <td>' + survey.title + ' </td> <td> <a href="javascript:" id="' + survey.id + '"> View Results </a> </td> <td> <a href="javascript:" class="delete-survey" id="' + survey.id + '"> Delete </a></tr>')
-    $('#user-surveys-table').append('<tr> <td>' + survey.title + ' </td> <td> <a href="javascript:" class="view-results" id="' + survey.id + '"> View Results </a> </td> <td> <a href="javascript:" id="' + survey.id + '"> Delete </a></tr>')
+    // $('#user-surveys-table').append('<tr> <td>' + survey.title + ' </td> <td> <a href="javascript:" class="view-results" id="' + survey.id + '"> View Results </a> </td> <td> <a href="javascript:" id="' + survey.id + '"> Delete </a></tr>')
 
   })
     $('#user-surveys-table').append('</tbody> </table>')
@@ -164,7 +165,7 @@ const onFindFailure = function(error) {
   console.error(error)
 }
 
-const onDeleteSuccess = function() {
+const onDeleteSuccess = function (data) {
   console.log('Successfully deleted Survey')
 }
 
