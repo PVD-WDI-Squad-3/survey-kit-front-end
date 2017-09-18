@@ -108,7 +108,7 @@ const deleteSurvey = function(deleteId) {
   })
 }
 
-const viewSurveyResults = function (surveyId) {
+const viewSurveyResults = function(surveyId) {
   return $.ajax({
     url: app.host + '/surveys/' + surveyId,
     headers: {

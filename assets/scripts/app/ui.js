@@ -149,6 +149,12 @@ const onFindFailure = function(error) {
 
 const onDeleteSuccess = function() {
   console.log('Successfully deleted Survey')
+  let questions = data.survey.questions
+  console.log(questions)
+  let qArray = []
+  questions.forEach(function(question) {
+    console.log(question.content)
+  })
 }
 
 const onDeleteFailure = function(error) {
