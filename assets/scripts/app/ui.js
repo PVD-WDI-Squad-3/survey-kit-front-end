@@ -77,7 +77,7 @@ const onLogoutSuccess = function(app) {
   $('#view-surveys').hide()
   $('#find-surveys').show()
   $('.view-surveys').hide()
-  $('.find-surveys').hide()
+  $('.find-surveys').show()
   $('.view-surveys').empty()
   $('.find-surveys').empty()
   $('#showGoToResults').hide()
