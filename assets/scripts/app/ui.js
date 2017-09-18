@@ -147,6 +147,11 @@ const onSurveysFailure = function(error) {
 
 const onFindSuccess = function(data) {
   console.log(data)
+  let surveyNum = Math.floor((Math.random() * data.surveys.length) + 1)
+  console.log(data.surveys[surveyNum])
+  let currSurvey = data.surveys[surveyNum]
+  let surveyId = currSurvey.id
+  appEvents.getNewSurvey(surveyId)
   console.log('Successfully fetched all surveys')
   const surveys = data.surveys
   let allSurveys = []
@@ -189,6 +194,14 @@ const onViewFailure = function (error) {
   console.error(error)
 }
 
+const onGetSurveySuccess = function (data) {
+  console.log(data)
+}
+
+const onGetSurveyFailure = function (error) {
+  console.error(error)
+}
+
 module.exports = {
   onSignupSuccess,
   onSignupFailure,
@@ -207,5 +220,7 @@ module.exports = {
   onDeleteSuccess,
   onDeleteFailure,
   onViewSuccess,
-  onViewFailure
+  onViewFailure,
+  onGetSurveySuccess,
+  onGetSurveyFailure
 }

@@ -118,6 +118,16 @@ const viewSurveyResults = function (surveyId) {
   })
 }
 
+const getSurvey = function (surveyId) {
+  return $.ajax({
+    url: app.host + '/surveys/' + surveyId,
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    },
+    method: 'GET'
+  })
+}
+
 module.exports = {
   addUser,
   userLogin,
@@ -127,7 +137,8 @@ module.exports = {
   getSurveys,
   findAllSurveys,
   deleteSurvey,
-  viewSurveyResults
+  viewSurveyResults,
+  getSurvey
 }
 
 // : {

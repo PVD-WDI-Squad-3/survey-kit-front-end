@@ -81,6 +81,12 @@ const viewResults = function (surveyId) {
   .catch(appUi.onViewFailure)
 }
 
+const getNewSurvey = function (surveyId) {
+  appApi.getSurvey(surveyId)
+  .then(appUi.onGetSurveySuccess)
+  .catch(appUi.onGetSurveyFailure)
+}
+
 module.exports = {
   registerUser,
   loginUser,
@@ -90,5 +96,6 @@ module.exports = {
   viewSurveys,
   findSurveys,
   deleteSurvey,
-  viewResults
+  viewResults,
+  getNewSurvey
 }
