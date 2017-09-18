@@ -3,7 +3,6 @@
 const app = require('../app.js')
 // const appEvents = require('./events.js')
 
-
 // on sign up success -- this is the most recent
 const onSignupSuccess = function () {
   console.log('sign-up success')
@@ -134,27 +133,27 @@ const onSurveysSuccess = function(data) {
   console.log("Fetched Survey Success!")
 }
 
-const onSurveysFailure = function(error) {
+const onSurveysFailure = function (error) {
   console.error(error)
 }
 
-const onFindSuccess = function(data) {
+const onFindSuccess = function (data) {
   console.log(data)
   console.log('Successfully fetched all surveys')
 }
 
-const onFindFailure = function(error) {
+const onFindFailure = function (error) {
   console.error(error)
 }
 
-const onDeleteSuccess = function() {
+const onDeleteSuccess = function () {
   console.log('Successfully deleted Survey')
-  let questions = data.survey.questions
-  console.log(questions)
-  let qArray = []
-  questions.forEach(function(question) {
-    console.log(question.content)
-  })
+//   let questions = data.survey.questions
+//   console.log(questions)
+//   let qArray = []
+//   questions.forEach(function(question) {
+//     console.log(question.content)
+//   })
 }
 
 const onDeleteFailure = function(error) {
