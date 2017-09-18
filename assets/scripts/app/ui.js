@@ -3,7 +3,6 @@
 const app = require('../app.js')
 // const appEvents = require('./events.js')
 
-
 // on sign up success -- this is the most recent
 const onSignupSuccess = function () {
   console.log('sign-up success')
@@ -36,7 +35,8 @@ const onSigninSuccess = function(data) {
   $('#passChange').show()
   $('#login').find('input:text').val('')
   $('#login').find('input:password').val('')
-
+  $('.view-surveys').empty()
+  $('.find-surveys').empty()
 // $('#loginModal').hide('hide')
   $('#survey').hide()
   $('#login').hide()
@@ -65,6 +65,7 @@ const onLogoutSuccess = function(app) {
   console.log('sign-out successful')
   $('.errorMessageModalLogin').empty()
   $('#myAccountButton').hide()
+  $('.myAccountSection').hide()
   $('#myAccountButton2').hide()
   $('#login').show()
   $('.modal-footer-login').show()
@@ -72,14 +73,20 @@ const onLogoutSuccess = function(app) {
   $('.modal-footer-reg').show()
   $('#log-out-btn').hide()
   $('#log-out-btn2').hide()
-  // $('#showCreateSurvey').hide()
-  // $('#view-surveys').hide()
-  // $('#find-surveys').hide()
-  // $('#showGoToResults').hide()
+  $('#showCreateSurvey').hide()
+  $('#view-surveys').hide()
+  $('#find-surveys').show()
+  $('.view-surveys').hide()
+  $('.find-surveys').hide()
+  $('.view-surveys').empty()
+  $('.find-surveys').empty()
+  $('#showGoToResults').hide()
   $('#passChange').hide()
   $('#errorMessage').empty()
   $('#errorMessageModalSignUp').empty()
   $('#signUpSuccess').empty()
+  $('#survey').hide()
+  $('#showChangePassButton').hide()
 }
 
 const onLogoutFailure = function() {
@@ -141,6 +148,16 @@ const onSurveysFailure = function(error) {
 const onFindSuccess = function(data) {
   console.log(data)
   console.log('Successfully fetched all surveys')
+  const surveys = data.surveys
+  let allSurveys = []
+  for (let i = 0; i < surveys.length; i++) {
+    allSurveys.push(surveys[i])
+  }
+  $('.find-surveys').append('<table class="table" id="user-surveys-table-show"> <thead> <tr> <th> Survey Title </th> <th>  </th> <th>  </th> <th> </th></tr> </thead> <tbody>')
+  allSurveys.forEach(function (survey) {
+    $('#user-surveys-table-show').append('<tr> <td>' + survey.title + ' </td> <td> <a href="javascript:" id="' + survey.id + '"> take survey </a> </td> </tr>')
+    // $('#user-surveys-table').append('<tr> <td>' + survey.title + ' </td> <td> <a href="javascript:" class="view-results" id="' + survey.id + '"> View Results </a> </td> <td> <a href="javascript:" id="' + survey.id + '"> Delete </a></tr>')
+  })
 }
 
 const onFindFailure = function(error) {
@@ -160,7 +177,7 @@ const onViewSuccess = function (data) {
   let questions = data.survey.questions
   console.log(questions)
   let qArray = []
-  questions.forEach(function(question) {
+  questions.forEach(function (question) {
     console.log(question.content)
   })
 }
