@@ -36,6 +36,21 @@ $(() => {
     appEvents.viewResults(surveyId)
   })
 
+  $(document).on('click', '.get-a-survey', function (event) {
+    event.preventDefault()
+    let survId = $(this).attr('id')
+    appEvents.getNewSurvey(survId)
+  })
+
+  $(document).on('click', '.quiz-answer', function (event) {
+    event.preventDefault()
+    console.log(this)
+    let surveyId = $('#quiz h1').attr('id')
+    console.log(surveyId)
+    let answerId = $(this).attr('id')
+    appEvents.updateSurvey(answerId, surveyId)
+  })
+
 // tutorial from: http://blog.appliedinformaticsinc.com/how-to-addremove-input-fields-dynamically-with-jquery/
   $(document).ready(function () {
     const maxFields = 20

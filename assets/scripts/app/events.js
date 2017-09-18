@@ -69,7 +69,7 @@ const findSurveys = function(event) {
     .catch(appUi.onFindFailure)
 }
 
-const deleteSurvey = function(deleteId) {
+const deleteSurvey = function (deleteId) {
   appApi.deleteSurvey(deleteId)
     .then(appUi.onDeleteSuccess)
     .catch(appUi.onDeleteFailure)
@@ -81,6 +81,18 @@ const viewResults = function (surveyId) {
   .catch(appUi.onViewFailure)
 }
 
+const getNewSurvey = function (survId) {
+  appApi.getSurvey(survId)
+  .then(appUi.onGetSurveySuccess)
+  .catch(appUi.onGetSurveyFailure)
+}
+
+const updateSurvey = function (answerId, surveyId) {
+  appApi.updateASurvey(answerId, surveyId)
+  .then(appUi.onUpdateSuccess)
+  .catch(appUi.onUpdateFailure)
+}
+
 module.exports = {
   registerUser,
   loginUser,
@@ -90,5 +102,7 @@ module.exports = {
   viewSurveys,
   findSurveys,
   deleteSurvey,
-  viewResults
+  viewResults,
+  getNewSurvey,
+  updateSurvey
 }

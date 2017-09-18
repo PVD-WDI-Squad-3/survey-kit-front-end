@@ -118,6 +118,39 @@ const viewSurveyResults = function (surveyId) {
   })
 }
 
+const getSurvey = function (survId) {
+  return $.ajax({
+    url: app.host + '/surveys/' + survId,
+    /*headers: {
+      Authorization: 'Token token=' + app.user.token
+    },*/
+    method: 'GET'
+  })
+}
+
+const updateASurvey = function (answerId, surveyId) {
+  return $.ajax({
+    url: app.host + '/surveys/' + surveyId,
+    method: 'PATCH',
+    data: {
+      "survey": {
+      //"title": "Eats",
+      "questions": [{
+        "content": {
+          //"question": "What should we eat?",
+          "answers": [
+            {"answer": answerId, "selected": +1},
+            //{"answer": "Monkeys"},
+            //{"answer": "Fish"},
+            //{"answer": "Nothing"}
+          ]
+        }
+      }]
+    }
+  }
+  })
+}
+
 module.exports = {
   addUser,
   userLogin,
@@ -127,7 +160,9 @@ module.exports = {
   getSurveys,
   findAllSurveys,
   deleteSurvey,
-  viewSurveyResults
+  viewSurveyResults,
+  getSurvey,
+  updateASurvey
 }
 
 // : {
