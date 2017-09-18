@@ -147,11 +147,11 @@ const onSurveysFailure = function(error) {
 
 const onFindSuccess = function(data) {
   console.log(data)
-  let surveyNum = Math.floor((Math.random() * data.surveys.length) + 1)
-  console.log(data.surveys[surveyNum])
-  let currSurvey = data.surveys[surveyNum]
-  let surveyId = currSurvey.id
-  appEvents.getNewSurvey(surveyId)
+  // let surveyNum = Math.floor((Math.random() * data.surveys.length) + 1)
+  // console.log(data.surveys[surveyNum])
+  // let currSurvey = data.surveys[surveyNum]
+  // let surveyId = currSurvey.id
+  // appEvents.getNewSurvey(surveyId)
   console.log('Successfully fetched all surveys')
   const surveys = data.surveys
   let allSurveys = []
@@ -160,7 +160,7 @@ const onFindSuccess = function(data) {
   }
   $('.find-surveys').append('<table class="table" id="user-surveys-table-show"> <thead> <tr> <th> Survey Title </th> <th>  </th> <th>  </th> <th> </th></tr> </thead> <tbody>')
   allSurveys.forEach(function (survey) {
-    $('#user-surveys-table-show').append('<tr> <td>' + survey.title + ' </td> <td> <a href="javascript:" id="' + survey.id + '"> take survey </a> </td> </tr>')
+    $('#user-surveys-table-show').append('<tr> <td>' + survey.title + ' </td> <td> <a href="javascript:" class="get-a-survey" id="' + survey.id + '"> take survey </a> </td> </tr>')
     // $('#user-surveys-table').append('<tr> <td>' + survey.title + ' </td> <td> <a href="javascript:" class="view-results" id="' + survey.id + '"> View Results </a> </td> <td> <a href="javascript:" id="' + survey.id + '"> Delete </a></tr>')
   })
 }
@@ -196,9 +196,24 @@ const onViewFailure = function (error) {
 
 const onGetSurveySuccess = function (data) {
   console.log(data)
+  let q = data.survey.questions
+  $('.take-survey').append('<form id="quiz"> <h1 id="' + data.survey.id + '">' + data.survey.title + '</h1>')
+  q.forEach(function(question) {
+    $('#quiz').append('<h3>' + question.content.question + '</h3>' + '<input type="radio" class="quiz-answer" name="quiz-answer" id="' + question.content.answers[0].id + '">' + question.content.answers[0].answer + '<br> <input type="radio" class="quiz-answer" name="quiz-answer" id="' + question.content.answers[1].id + '">' + question.content.answers[1].answer + '<br> <input type="radio" class="quiz-answer" name="quiz-answer" id="' + question.content.answers[2].id + '">' + question.content.answers[2].answer + '<br> <input type="radio" class="quiz-answer" name="quiz-answer" id="' + question.content.answers[3].id + '">' + question.content.answers[3].answer + '<br>')
+  })
+  //$('#quiz').append('<input type="submit" id="quiz-submit" class="submit" value="Submit">')
+  $('.take-survey').append('</form>')
 }
 
 const onGetSurveyFailure = function (error) {
+  console.error(error)
+}
+
+const onUpdateSuccess = function (data) {
+  console.log(data)
+}
+
+const onUpdateFailure = function (error) {
   console.error(error)
 }
 
@@ -222,5 +237,7 @@ module.exports = {
   onViewSuccess,
   onViewFailure,
   onGetSurveySuccess,
-  onGetSurveyFailure
+  onGetSurveyFailure,
+  onUpdateSuccess,
+  onUpdateFailure
 }
