@@ -19,5 +19,15 @@ During the planning process, we also assigned pseudo roles to have structure and
 
 Our planning documents including our user stories, ERD, and wireframes can be found [here](https://docs.google.com/document/d/1JZLS4SFVwl-2guNw10I9j4O9nWy22VpnurYFZH-N2y0/edit?usp=sharing).
 
+### Technologies/Frameworks used
 
-Link to back-end repo: https://github.com/PVD-WDI-Squad-3/survey-kit-back-end
+* Node.js
+* Bootstrap
+* MongoDB
+* Mongoose
+* Express API
+* Git & Github
+* jQuery
+
+### Back-end Repo
+https://github.com/PVD-WDI-Squad-3/survey-kit-back-end
