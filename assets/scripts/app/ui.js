@@ -200,9 +200,9 @@ const onGetSurveySuccess = function (data) {
   let q = data.survey.questions
   $('.take-survey').append('<form id="quiz"> <h1 id="' + data.survey.id + '">' + data.survey.title + '</h1>')
   q.forEach(function(question) {
-    $('#quiz').append('<h3>' + question.content.question + '</h3>' + '<input type="radio" class="quiz-answer" name="quiz-answer" id="' + question.content.answers[0].id + '">' + question.content.answers[0].answer + '<br> <input type="radio" class="quiz-answer" name="quiz-answer" id="' + question.content.answers[1].id + '">' + question.content.answers[1].answer + '<br> <input type="radio" class="quiz-answer" name="quiz-answer" id="' + question.content.answers[2].id + '">' + question.content.answers[2].answer + '<br> <input type="radio" class="quiz-answer" name="quiz-answer" id="' + question.content.answers[3].id + '">' + question.content.answers[3].answer + '<br>')
+    $('#quiz').append('<h3>' + question.content.question + '</h3>' + '<input type="radio" class="1" name="quiz-answer" value="0" id="' + question.content.answers[0].id + '">' + question.content.answers[0].answer + '<br> <input type="radio" class="2" name="quiz-answer" value="1" id="' + question.content.answers[1].id + '">' + question.content.answers[1].answer + '<br> <input type="radio" class="3" name="quiz-answer" value="2" id="' + question.content.answers[2].id + '">' + question.content.answers[2].answer + '<br> <input type="radio" class="4" name="quiz-answer" value="3" id="' + question.content.answers[3].id + '">' + question.content.answers[3].answer + '<br>')
   })
-  //$('#quiz').append('<input type="submit" id="quiz-submit" class="submit" value="Submit">')
+  $('#quiz').append('<input type="submit" id="quiz-submit" class="submit" value="Submit">')
   $('.take-survey').append('</form>')
 }
 
