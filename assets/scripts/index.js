@@ -13,6 +13,7 @@ $(() => {
 // use require without a reference to ensure a file is bundled
 // require('./example')
 const appEvents = require('../scripts/app/events.js')
+const getFormFields = require('../../lib/get-form-fields')
 
 $(() => {
   $('#registration').on('submit', appEvents.registerUser)
@@ -42,13 +43,19 @@ $(() => {
     appEvents.getNewSurvey(survId)
   })
 
-  $(document).on('click', '.quiz-answer', function (event) {
+  $(document).on('submit', '#quiz', function (event) {
     event.preventDefault()
-    console.log(this)
+    const data = getFormFields(this)
+    console.log(data)
+    //console.log(this)
     let surveyId = $('#quiz h1').attr('id')
     console.log(surveyId)
     let answerId = $(this).attr('id')
-    appEvents.updateSurvey(answerId, surveyId)
+    console.log(answerId)
+    let title = $('#quiz h1').html()
+    console.log(title)
+    let question = $('#quiz h3').html()
+    //appEvents.updateSurvey(answerId, surveyId, title, question)
   })
 
 // tutorial from: http://blog.appliedinformaticsinc.com/how-to-addremove-input-fields-dynamically-with-jquery/

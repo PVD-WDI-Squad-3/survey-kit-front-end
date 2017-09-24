@@ -128,16 +128,19 @@ const getSurvey = function (survId) {
   })
 }
 
-const updateASurvey = function (answerId, surveyId) {
+const updateASurvey = function (answerId, surveyId, title, question) {
   return $.ajax({
     url: app.host + '/surveys/' + surveyId,
+    /*headers: {
+      Authorization: 'Token token=' + app.user.token
+    }*/
     method: 'PATCH',
     data: {
-      "survey": {
-      //"title": "Eats",
+      /*"survey": {
+        //"title": title,
       "questions": [{
         "content": {
-          //"question": "What should we eat?",
+            //"question": question,
           "answers": [
             {"answer": answerId, "selected": +1},
             //{"answer": "Monkeys"},
@@ -146,9 +149,9 @@ const updateASurvey = function (answerId, surveyId) {
           ]
         }
       }]
-    }
+    }*/
   }
-  })
+})
 }
 
 module.exports = {
