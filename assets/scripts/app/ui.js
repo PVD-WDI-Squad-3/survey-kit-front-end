@@ -128,12 +128,13 @@ const onSurveysSuccess = function(data) {
       userSurveys.push(surveys[i])
     }
   }
+  $('#user-surveys-table').empty()
   $('.view-surveys').empty()
   $('.view-surveys').append('<table class="table" id="user-surveys-table"> <thead> <tr> <th> Survey Title </th> <th>  </th> <th>  </th> <th> </th></tr> </thead> <tbody>')
   userSurveys.forEach(function(survey) {
 
     $('#user-surveys-table').append('<tr> <td>' + survey.title + ' </td> <td> <a href="javascript:" id="' + survey.id + '"> View Results </a> </td> <td> <a href="javascript:" class="delete-survey" id="' + survey.id + '"> Delete </a></tr>')
-    // $('#user-surveys-table').append('<tr> <td>' + survey.title + ' </td> <td> <a href="javascript:" class="view-results" id="' + survey.id + '"> View Results </a> </td> <td> <a href="javascript:" id="' + survey.id + '"> Delete </a></tr>')
+    $('#user-surveys-table').append('<tr> <td>' + survey.title + ' </td> <td> <a href="javascript:" class="view-results" id="' + survey.id + '"> View Results </a> </td> <td> <a href="javascript:" id="' + survey.id + '"> Delete </a></tr>')
 
   })
     $('#user-surveys-table').append('</tbody> </table>')
@@ -159,6 +160,7 @@ const onFindSuccess = function(data) {
   for (let i = 0; i < surveys.length; i++) {
     allSurveys.push(surveys[i])
   }
+  $('.find-surveys').empty()
   $('.find-surveys').append('<table class="table" id="user-surveys-table-show"> <thead> <tr> <th> Survey Title </th> <th>  </th> <th>  </th> <th> </th></tr> </thead> <tbody>')
   allSurveys.forEach(function (survey) {
     $('#user-surveys-table-show').append('<tr> <td>' + survey.title + ' </td> <td> <a href="javascript:" class="get-a-survey" id="' + survey.id + '"> take survey </a> </td> </tr>')
