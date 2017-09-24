@@ -33,18 +33,19 @@ const onSigninSuccess = function(data) {
   app.user = data.user
   $('#login input').not('.submit').val('')
   $('#passChange').show()
+  $('.register-button').hide()
+  $('.login-button').hide()
   $('#login').find('input:text').val('')
   $('#login').find('input:password').val('')
   $('.view-surveys').empty()
   $('.find-surveys').empty()
-// $('#loginModal').hide('hide')
   $('#survey').hide()
   $('#login').hide()
   $('.modal-footer-login').hide()
   $('#myAccountButton').show()
   $('#myAccountButton2').hide()
   $('#log-out-btn').show()
-  $('#log-out-btn2').show()
+  // $('#log-out-btn2').show()
   $('#showCreateSurvey').show()
   $('#view-surveys').show()
   $('#find-surveys').show()
@@ -68,11 +69,13 @@ const onLogoutSuccess = function(app) {
   $('.myAccountSection').hide()
   $('#myAccountButton2').hide()
   $('#login').show()
+  $('.register-button').show()
+  $('.login-button').show()
   $('.modal-footer-login').show()
   $('#registration').show()
   $('.modal-footer-reg').show()
   $('#log-out-btn').hide()
-  $('#log-out-btn2').hide()
+  // $('#log-out-btn2').hide()
   $('#showCreateSurvey').hide()
   $('#view-surveys').hide()
   $('#find-surveys').show()
@@ -137,9 +140,9 @@ const onSurveysSuccess = function(data) {
     $('#user-surveys-table').append('<tr> <td>' + survey.title + ' </td> <td> <a href="javascript:" class="view-results" id="' + survey.id + '"> View Results </a> </td> <td> <a href="javascript:" id="' + survey.id + '"> Delete </a></tr>')
 
   })
-    $('#user-surveys-table').append('</tbody> </table>')
+    // $('#user-surveys-table').append('</tbody> </table>')
   console.log(app.user)
-  console.log(userSurveys)
+  // console.log(userSurveys)
   console.log("Fetched Survey Success!")
 }
 
@@ -160,6 +163,7 @@ const onFindSuccess = function(data) {
   for (let i = 0; i < surveys.length; i++) {
     allSurveys.push(surveys[i])
   }
+  $('#user-surveys-table-show').empty()
   $('.find-surveys').empty()
   $('.find-surveys').append('<table class="table" id="user-surveys-table-show"> <thead> <tr> <th> Survey Title </th> <th>  </th> <th>  </th> <th> </th></tr> </thead> <tbody>')
   allSurveys.forEach(function (survey) {
