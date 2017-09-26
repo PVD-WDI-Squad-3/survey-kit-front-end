@@ -181,14 +181,14 @@ const onDeleteFailure = function(error) {
 const onViewSuccess = function (data) {
   $('.surveyResults').show()
   console.log(data)
-  let questions = data.survey.questions
-  console.log(questions)
+  let survey = data.survey
+  //console.log(questions)
   let qArray = []
-  questions.forEach(function (question) {
-    console.log(question.content)
-    $('#survey-results-table').append('<tr><td>' + question.content.question + ' </td> </tr> <tr> <td>' + question.content.answers[0].answer + '</td> <td>' + question.content.answers[1].answer + '</td> <td>' + question.content.answers[2].answer + '</td> <td>' + question.content.answers[3].answer + '</td> </tr> <tr> <td>' + question.content.answers[0].selected + '</td> <td>' + question.content.answers[1].selected + '</td> <td>' + question.content.answers[2].selected + '</td> <td>' + question.content.answers[3].selected + '</td> </tr>')
-  })
-  $('#survey-results').append('</tbody> </table>')
+  //questions.forEach(function (question) {
+    //console.log(question.content)
+    $('#survey-results-table').append('<tr><td><h2 align="center">' + survey.question + ' </h2></td> </tr> <tr> <td>' + survey.answer1 + '</td> <td>' + survey.answer2 + '</td> <td>' + survey.answer3 + '</td> <td>' + survey.answer4 + '</td> </tr> <tr> <td>' + survey.answer1Selected + '</td> <td>' + survey.answer2Selected + '</td> <td>' + survey.answer3Selected + '</td> <td>' + survey.answer4Selected + '</td> </tr>')
+//  })
+  $('#survey-results').append('</tbody>')
 }
 
 const onViewFailure = function (error) {
@@ -197,11 +197,11 @@ const onViewFailure = function (error) {
 
 const onGetSurveySuccess = function (data) {
   console.log(data)
-  let q = data.survey.questions
-  $('.take-survey').append('<form id="quiz"> <h1 id="' + data.survey.id + '">' + data.survey.title + '</h1>')
-  q.forEach(function(question) {
-    $('#quiz').append('<h3>' + question.content.question + '</h3>' + '<input type="radio" class="1" name="quiz-answer" value="0" id="' + question.content.answers[0].id + '">' + question.content.answers[0].answer + '<br> <input type="radio" class="2" name="quiz-answer" value="1" id="' + question.content.answers[1].id + '">' + question.content.answers[1].answer + '<br> <input type="radio" class="3" name="quiz-answer" value="2" id="' + question.content.answers[2].id + '">' + question.content.answers[2].answer + '<br> <input type="radio" class="4" name="quiz-answer" value="3" id="' + question.content.answers[3].id + '">' + question.content.answers[3].answer + '<br>')
-  })
+  //let q = data.survey.questions
+  $('.take-survey').append('<form id="quiz"> <h1 id="' + data.survey.id + '">' + data.survey.title + '</h1> <p id="taken" hidden>' + data.survey.timesTaken + '</p>')
+  //q.forEach(function(question) {
+    $('#quiz').append('<h3>' + data.survey.question + '</h3>' + '<input type="radio" class="0" name="answer" value="answer1" data-selected="' + data.survey.answer1Selected + '">' + data.survey.answer1 + '<br> <input type="radio" class="1" name="answer" value="answer2" data-selected="' + data.survey.answer2Selected + '">' + data.survey.answer2 + '<br> <input type="radio" class="2" name="answer" value="answer3" data-selected="' + data.survey.answer3Selected + '">' + data.survey.answer3 + '<br> <input type="radio" class="3" name="answer" value="answer4" data-selected="' + data.survey.answer4Selected + '">' + data.survey.answer4 + '<br>')
+  //})
   $('#quiz').append('<input type="submit" id="quiz-submit" class="submit" value="Submit">')
   $('.take-survey').append('</form>')
 }

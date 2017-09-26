@@ -87,8 +87,8 @@ const getNewSurvey = function (survId) {
   .catch(appUi.onGetSurveyFailure)
 }
 
-const updateSurvey = function (answerId, surveyId, title, question) {
-  appApi.updateASurvey(answerId, surveyId, title, question)
+const updateSurvey = function (surveyId, taken, data, selected) {
+  appApi.updateASurvey(surveyId, taken, data, selected)
   .then(appUi.onUpdateSuccess)
   .catch(appUi.onUpdateFailure)
 }
