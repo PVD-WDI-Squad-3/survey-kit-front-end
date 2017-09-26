@@ -47,15 +47,29 @@ $(() => {
     event.preventDefault()
     const data = getFormFields(this)
     console.log(data)
+    let selected
+    if (data.answer === "answer1") {
+      selected = $('.0').attr('data-selected')
+      console.log(selected)
+    } else if (data.answer === "answer2") {
+      selected = $('.1').attr('data-selected')
+    } else if (data.answer === "answer3") {
+      selected = $('.2').attr('data-selected')
+    } else if (data.answer === "answer4") {
+      selected = $('.3').attr('data-selected')
+    }
     //console.log(this)
     let surveyId = $('#quiz h1').attr('id')
+    let taken = $('#taken').html()
+    //console.log(selected)
+    console.log(taken)
     console.log(surveyId)
-    let answerId = $(this).attr('id')
-    console.log(answerId)
-    let title = $('#quiz h1').html()
-    console.log(title)
-    let question = $('#quiz h3').html()
-    //appEvents.updateSurvey(answerId, surveyId, title, question)
+    //let answerId = $(this).attr('id')
+    //console.log(answerId)
+    //let title = $('#quiz h1').html()
+    //console.log(title)
+    //let question = $('#quiz h3').html()
+    appEvents.updateSurvey(surveyId, taken, data, selected)
   })
 
 // tutorial from: http://blog.appliedinformaticsinc.com/how-to-addremove-input-fields-dynamically-with-jquery/
