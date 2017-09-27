@@ -124,6 +124,7 @@ const onCreateFailure = function(error) {
 }
 
 const onSurveysSuccess = function (data) {
+  $('.dashboard-messages-deleted').empty()
   console.log('on survey submit success')
   const surveys = data.surveys
   let userSurveys = []
@@ -152,6 +153,7 @@ const onFindSuccess = function(data) {
   // let currSurvey = data.surveys[surveyNum]
   // let surveyId = currSurvey.id
   // appEvents.getNewSurvey(surveyId)
+  $('.dashboard-messages-deleted').empty()
   console.log('Successfully fetched all surveys')
   const surveys = data.surveys
   let allSurveys = []
@@ -172,6 +174,9 @@ const onFindFailure = function(error) {
 }
 
 const onDeleteSuccess = function (data) {
+  $('.dashboard-messages-deleted').show()
+  $('.dashboard-messages-deleted').append('Your survey was deleted sucessfully. Please select "view my surveys" to see your changes.')
+  // $('.dashboard-messages-deleted').empty()
   console.log('Successfully deleted Survey')
 }
 

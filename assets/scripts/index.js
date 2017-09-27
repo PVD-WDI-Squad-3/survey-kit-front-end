@@ -133,7 +133,7 @@ $(() => {
     $('.yay-message').empty()
     $('#survey').show()
     $('#quiz-close').hide()
-    $('#find-surveys').hide()
+    // $('#find-surveys').hide()
     $('.surveyResults').hide()
     $('.view-surveys').hide()
     $('.find-surveys').hide()
@@ -154,6 +154,7 @@ $(() => {
   $('#view-surveys').click(function () {
     $('#survey').hide()
     $('.view-surveys').show()
+    $('.find-surveys').hide()
     $('#dashboard-messages-created').empty()
   })
 
@@ -163,5 +164,11 @@ $(() => {
     $('.take-survey').empty()
     $('.yay-message').empty()
     $('#quiz-close').hide()
+  })
+
+  $('#find-surveys').click(function () {
+      $('#survey').hide()
+      $('.find-surveys').show()
+      $('.view-surveys').hide()
   })
 })
