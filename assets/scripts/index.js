@@ -31,13 +31,16 @@ $(() => {
     appEvents.deleteSurvey(deleteId)
   })
 
-  $(document).on('click', '.view-results', function(event) {
+  $(document).on('click', '.view-results', function (event) {
     event.preventDefault()
     let surveyId = $(this).attr('id')
     appEvents.viewResults(surveyId)
   })
 
   $(document).on('click', '.get-a-survey', function (event) {
+    $('.yay-message').empty()
+    $('.find-surveys').hide()
+    $('#quiz-close').show()
     event.preventDefault()
     let survId = $(this).attr('id')
     appEvents.getNewSurvey(survId)
@@ -114,6 +117,7 @@ $(() => {
     $('#loginButton2').hide()
     $('.surveyResults').hide()
     $('.cancel').hide()
+    $('#quiz-close').hide()
   })
 
   $(document).on('click', '#myAccountButton', function (e) {
@@ -124,8 +128,17 @@ $(() => {
   })
 
   $('#showCreateSurvey').click(function () {
+    $('.dashboard-messages-created').empty()
+    $('#survey-results-table').empty()
+    $('.yay-message').empty()
     $('#survey').show()
+    $('#quiz-close').hide()
+    $('#find-surveys').hide()
+    $('.surveyResults').hide()
     $('.view-surveys').hide()
+    $('.find-surveys').hide()
+    $('.yay-message').empty()
+    // $('#quiz-close').show()
     // $('#user-surveys-table').hide()
   })
 
@@ -142,5 +155,13 @@ $(() => {
     $('#survey').hide()
     $('.view-surveys').show()
     $('#dashboard-messages-created').empty()
+  })
+
+  $('#quiz-close').click(function () {
+    $('#survey').hide()
+    $('.find-surveys').show()
+    $('.take-survey').empty()
+    $('.yay-message').empty()
+    $('#quiz-close').hide()
   })
 })

@@ -45,7 +45,6 @@ const onSigninSuccess = function(data) {
   $('#myAccountButton').show()
   $('#myAccountButton2').hide()
   $('#log-out-btn').show()
-  // $('#log-out-btn2').show()
   $('#showCreateSurvey').show()
   $('#view-surveys').show()
   $('#find-surveys').show()
@@ -53,6 +52,7 @@ const onSigninSuccess = function(data) {
   $('#showChangePassButton').show()
   $('#passChange').show()
   $('.modal-footer-changepwd').show()
+  $('.yay-message').empty()
   console.log('sign in successful')
 }
 
@@ -124,6 +124,7 @@ const onCreateFailure = function(error) {
 }
 
 const onSurveysSuccess = function (data) {
+  console.log('on survey submit success')
   const surveys = data.surveys
   let userSurveys = []
   for (let i = 0; i < surveys.length; i++) {
@@ -179,7 +180,9 @@ const onDeleteFailure = function(error) {
 }
 
 const onViewSuccess = function (data) {
+  $('#survey-results-table').empty()
   $('.surveyResults').show()
+  $('dashboard-messages-created').empty()
   console.log(data)
   let survey = data.survey
   //console.log(questions)
@@ -211,7 +214,14 @@ const onGetSurveyFailure = function (error) {
 }
 
 const onUpdateSuccess = function (data) {
-  console.log(data)
+  // $('#quiz').hide()
+  $('#survey-results-table').empty()
+  $('#quiz-close').hide()
+  $('#survey').hide()
+  $('.find-surveys').show()
+  $('.take-survey').empty()
+  $('.yay-message').empty()
+  $('.yay-message').append('Thank you! Your answer has been recorded.')
 }
 
 const onUpdateFailure = function (error) {
