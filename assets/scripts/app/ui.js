@@ -105,7 +105,7 @@ const onResetSuccess = function () {
   $('#passChange').hide()
   $('.modal-footer-changepwd').hide()
   $('#myAccountButton2').show()
-  $('#reset-success').prepend('<div class="row" style="text-align: center; color: black"> <p>Your password has been reset.</p></div>')
+  $('#reset-success').prepend('<div class="row" style="text-align: center; color: black"> <p><br>Your password has been reset.</p></div>')
 }
 
 const onResetFailure = function() {
