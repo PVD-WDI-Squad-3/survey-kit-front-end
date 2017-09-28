@@ -8,7 +8,7 @@ const registerUser = function(event) {
   let data = getFormFields(this)
   // Test that the passwords match
   if (data.credentials.password !== data.credentials.password_confirmation) {
-    console.log('info invalid')
+    // console.log('info invalid')
     // $('#errorMessage').prepend('<div class="row" style="text-align: center; color: red"> <p> ' + 'Passwords do not match or username is already taken. Try again!' + ' </p></div>')
     // $('#errorMessage').text('<div class="row" style="text-align: center; color: red"> <p> ' + 'Passwords do not match. Try again!' + ' </p></div>')
   } else {
@@ -22,7 +22,7 @@ const registerUser = function(event) {
 const loginUser = function(event) {
   const data = getFormFields(this)
   event.preventDefault()
-  console.log('hi')
+  // console.log('hi')
   appApi.userLogin(data)
     .then(appUi.onSigninSuccess)
     .catch(appUi.onSigninFailure)
@@ -46,8 +46,8 @@ const resetPassword = function(event) {
 
 const createSurvey = function(event) {
   const data = getFormFields(this)
-  console.log(this)
-  console.log(data)
+  // console.log(this)
+  // console.log(data)
   event.preventDefault()
   appApi.newSurvey(data)
     .then(appUi.onCreateSuccess)
@@ -55,7 +55,7 @@ const createSurvey = function(event) {
 }
 
 const viewSurveys = function(event) {
-  console.log('working')
+  // console.log('working')
   event.preventDefault()
   appApi.getSurveys()
     .then(appUi.onSurveysSuccess)

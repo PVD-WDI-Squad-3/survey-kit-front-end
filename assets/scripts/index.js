@@ -49,11 +49,11 @@ $(() => {
   $(document).on('submit', '#quiz', function (event) {
     event.preventDefault()
     const data = getFormFields(this)
-    console.log(data)
+    // console.log(data)
     let selected
     if (data.answer === "answer1") {
       selected = $('.0').attr('data-selected')
-      console.log(selected)
+      // console.log(selected)
     } else if (data.answer === "answer2") {
       selected = $('.1').attr('data-selected')
     } else if (data.answer === "answer3") {
@@ -65,8 +65,8 @@ $(() => {
     let surveyId = $('#quiz h1').attr('id')
     let taken = $('#taken').html()
     //console.log(selected)
-    console.log(taken)
-    console.log(surveyId)
+    // console.log(taken)
+    // console.log(surveyId)
     //let answerId = $(this).attr('id')
     //console.log(answerId)
     //let title = $('#quiz h1').html()
@@ -171,5 +171,6 @@ $(() => {
       $('.find-surveys').show()
       $('.view-surveys').hide()
       $('.surveyResults').hide()
-  })
+      // $('.take-survey').hide()
+      })
 })
