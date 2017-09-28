@@ -53,6 +53,7 @@ const onSigninSuccess = function(data) {
   $('#passChange').show()
   $('.modal-footer-changepwd').show()
   $('.yay-message').empty()
+  $('#survey-results').show()
   console.log('sign in successful')
 }
 
@@ -90,6 +91,7 @@ const onLogoutSuccess = function(app) {
   $('#signUpSuccess').empty()
   $('#survey').hide()
   $('#showChangePassButton').hide()
+  $('#survey-results').hide()
 }
 
 const onLogoutFailure = function() {

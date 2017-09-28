@@ -170,5 +170,6 @@ $(() => {
       $('#survey').hide()
       $('.find-surveys').show()
       $('.view-surveys').hide()
+      $('.surveyResults').hide()
   })
 })
