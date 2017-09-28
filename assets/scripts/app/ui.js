@@ -92,6 +92,8 @@ const onLogoutSuccess = function(app) {
   $('#survey').hide()
   $('#showChangePassButton').hide()
   $('#survey-results').hide()
+  $('.yay-message').empty()
+  $('.surveyResults').empty()
 }
 
 const onLogoutFailure = function() {
