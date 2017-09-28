@@ -41,6 +41,7 @@ $(() => {
     $('.yay-message').empty()
     $('.find-surveys').hide()
     $('#quiz-close').show()
+    $('.take-survey').empty()
     event.preventDefault()
     let survId = $(this).attr('id')
     appEvents.getNewSurvey(survId)
