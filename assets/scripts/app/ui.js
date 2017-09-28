@@ -5,7 +5,7 @@ const app = require('../app.js')
 
 // on sign up success -- this is the most recent
 const onSignupSuccess = function () {
-  console.log('sign-up success')
+  // console.log('sign-up success')
   $('#errorMessage').empty()
   $('#errorMessageModalSignUp').empty()
   $('#registration').hide()
@@ -20,7 +20,7 @@ const onSignupSuccess = function () {
 
 const onSignupFailure = () => {
   // console.log('There was problem signing up, please try again!')
-  console.log('sign-up fail')
+  // console.log('sign-up fail')
   $('#errorMessageModalSignUp').empty()
   $('#errorMessage').empty()
   $('#registration').find('input:text').val('')
@@ -29,7 +29,7 @@ const onSignupFailure = () => {
 }
 
 const onSigninSuccess = function(data) {
-  console.log(data.user)
+  // console.log(data.user)
   app.user = data.user
   $('#login input').not('.submit').val('')
   $('#passChange').show()
@@ -53,17 +53,18 @@ const onSigninSuccess = function(data) {
   $('#passChange').show()
   $('.modal-footer-changepwd').show()
   $('.yay-message').empty()
-  console.log('sign in successful')
+  $('#survey-results').show()
+  // console.log('sign in successful')
 }
 
 const onSigninFailure = (error) => {
   $('.errorMessageModalLogin').empty()
-  console.log('Invalid username or password.')
+  // console.log('Invalid username or password.')
   $('.errorMessageModalLogin').prepend('<div class="row" style="text-align: center; color: red"> <p> ' + 'Your username or password is incorrect. Try again!' + ' </p></div>')
 }
 
 const onLogoutSuccess = function(app) {
-  console.log('sign-out successful')
+  // console.log('sign-out successful')
   $('.errorMessageModalLogin').empty()
   $('#myAccountButton').hide()
   $('.myAccountSection').hide()
@@ -90,15 +91,16 @@ const onLogoutSuccess = function(app) {
   $('#signUpSuccess').empty()
   $('#survey').hide()
   $('#showChangePassButton').hide()
+  $('#survey-results').hide()
 }
 
 const onLogoutFailure = function() {
-  console.log('error signing out')
+  // console.log('error signing out')
 }
 
 const onResetSuccess = function () {
   $('#reset-success').empty()
-  console.log('password reset successful')
+  // console.log('password reset successful')
   $('#passChange input').not('.submit').val('')
   $('#passChange').hide()
   $('.modal-footer-changepwd').hide()
@@ -107,25 +109,25 @@ const onResetSuccess = function () {
 }
 
 const onResetFailure = function() {
-  console.log('password reset failed')
+  // console.log('password reset failed')
   $('#reset-fail').empty()
   $('#reset-fail').prepend('<div class="row" style="text-align: center; color: red"> <p>Your password has been reset.</p></div>')
 }
 
 const onCreateSuccess = function(data) {
-  console.log(data)
-  console.log('Survey Created!')
+  // console.log(data)
+  // console.log('Survey Created!')
   $('#survey input').not('.submit').val('')
   $('.dashboard-messages-created').prepend('<div class="row" style="text-align: center; color: black"> <p>Your survey has been created. View your surveys</p></div>')
 }
 
 const onCreateFailure = function(error) {
-  console.error(error)
+  // console.error(error)
 }
 
 const onSurveysSuccess = function (data) {
   $('.dashboard-messages-deleted').empty()
-  console.log('on survey submit success')
+  // console.log('on survey submit success')
   const surveys = data.surveys
   let userSurveys = []
   for (let i = 0; i < surveys.length; i++) {
@@ -143,18 +145,18 @@ const onSurveysSuccess = function (data) {
 }
 
 const onSurveysFailure = function(error) {
-  console.error(error)
+  // console.error(error)
 }
 
 const onFindSuccess = function(data) {
-  console.log(data)
+  // console.log(data)
   // let surveyNum = Math.floor((Math.random() * data.surveys.length) + 1)
   // console.log(data.surveys[surveyNum])
   // let currSurvey = data.surveys[surveyNum]
   // let surveyId = currSurvey.id
   // appEvents.getNewSurvey(surveyId)
   $('.dashboard-messages-deleted').empty()
-  console.log('Successfully fetched all surveys')
+  // console.log('Successfully fetched all surveys')
   const surveys = data.surveys
   let allSurveys = []
   for (let i = 0; i < surveys.length; i++) {
@@ -170,25 +172,25 @@ const onFindSuccess = function(data) {
 }
 
 const onFindFailure = function(error) {
-  console.error(error)
+  // console.error(error)
 }
 
 const onDeleteSuccess = function (data) {
   $('.dashboard-messages-deleted').show()
   $('.dashboard-messages-deleted').append('Your survey was deleted sucessfully. Please select "view my surveys" to see your changes.')
   // $('.dashboard-messages-deleted').empty()
-  console.log('Successfully deleted Survey')
+  // console.log('Successfully deleted Survey')
 }
 
 const onDeleteFailure = function(error) {
-  console.error(error)
+  // console.error(error)
 }
 
 const onViewSuccess = function (data) {
   $('#survey-results-table').empty()
   $('.surveyResults').show()
   $('dashboard-messages-created').empty()
-  console.log(data)
+  // console.log(data)
   let survey = data.survey
   //console.log(questions)
   let qArray = []
@@ -200,11 +202,11 @@ const onViewSuccess = function (data) {
 }
 
 const onViewFailure = function (error) {
-  console.error(error)
+  // console.error(error)
 }
 
 const onGetSurveySuccess = function (data) {
-  console.log(data)
+  // console.log(data)
   //let q = data.survey.questions
   $('.take-survey').append('<form id="quiz"> <h1 id="' + data.survey.id + '">' + data.survey.title + '</h1> <p id="taken" hidden>' + data.survey.timesTaken + '</p>')
   //q.forEach(function(question) {
@@ -215,7 +217,7 @@ const onGetSurveySuccess = function (data) {
 }
 
 const onGetSurveyFailure = function (error) {
-  console.error(error)
+  // console.error(error)
 }
 
 const onUpdateSuccess = function (data) {
@@ -230,7 +232,7 @@ const onUpdateSuccess = function (data) {
 }
 
 const onUpdateFailure = function (error) {
-  console.error(error)
+  // console.error(error)
 }
 
 module.exports = {

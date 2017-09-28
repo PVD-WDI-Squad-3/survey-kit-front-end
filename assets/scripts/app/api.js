@@ -1,7 +1,7 @@
 const app = require('./../app.js')
 
 const addUser = function(data) {
-  console.log(data)
+  // console.log(data)
   return $.ajax({
     url: app.host + '/sign-up/',
     // headers: { 'header': 'Content-Type: application/json' },
@@ -11,7 +11,7 @@ const addUser = function(data) {
 }
 
 const userLogin = function(data) {
-  console.log(data)
+  // console.log(data)
   return $.ajax({
     url: app.host + '/sign-in/',
     method: 'POST',
@@ -28,7 +28,7 @@ const userLogin = function(data) {
 }
 
 const userLogout = function(id) {
-  console.log('api file')
+  // console.log('api file')
   return $.ajax({
     url: app.host + '/sign-out/' + app.user.id,
     method: 'DELETE',
@@ -72,7 +72,7 @@ const newSurvey = function(data) {
 }
 
 const getSurveys = function() {
-  console.log("working also")
+  // console.log("working also")
   return $.ajax({
     url: app.host + '/surveys',
     method: 'GET'
@@ -119,9 +119,9 @@ const getSurvey = function (survId) {
 const updateASurvey = function (surveyId, taken, data, selected) {
   taken++
   selected++
-  console.log(selected)
+  // console.log(selected)
   let answer = data.answer
-  console.log(answer)
+  // console.log(answer)
 
   if (answer === 'answer1') {
     return $.ajax({
