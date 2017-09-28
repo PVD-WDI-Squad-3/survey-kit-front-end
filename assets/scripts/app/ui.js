@@ -178,6 +178,7 @@ const onFindFailure = function(error) {
 }
 
 const onDeleteSuccess = function (data) {
+  $('.dashboard-messages-deleted').empty()
   $('.dashboard-messages-deleted').show()
   $('.dashboard-messages-deleted').append('Your survey was deleted sucessfully. Please select "view my surveys" to see your changes.')
   // $('.dashboard-messages-deleted').empty()
