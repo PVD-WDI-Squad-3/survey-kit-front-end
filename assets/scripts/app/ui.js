@@ -53,7 +53,9 @@ const onSigninSuccess = function(data) {
   $('#passChange').show()
   $('.modal-footer-changepwd').show()
   $('.yay-message').empty()
-  $('#survey-results').show()
+  //$('.surveyResults').show()
+  // $('#survey-results').hide()
+  // $('#survey-results').empty()
   // console.log('sign in successful')
 }
 
@@ -91,9 +93,9 @@ const onLogoutSuccess = function(app) {
   $('#signUpSuccess').empty()
   $('#survey').hide()
   $('#showChangePassButton').hide()
-  $('#survey-results').hide()
   $('.yay-message').empty()
-  $('.surveyResults').empty()
+  $('.surveyResults').hide()
+  // $('.surveyResults').empty()
 }
 
 const onLogoutFailure = function() {
@@ -201,7 +203,7 @@ const onViewSuccess = function (data) {
     //console.log(question.content)
     $('#survey-results-table').append('<tr><td><h2 align="center">' + survey.question + ' </h2></td> </tr> <tr> <td>' + survey.answer1 + '</td> <td>' + survey.answer2 + '</td> <td>' + survey.answer3 + '</td> <td>' + survey.answer4 + '</td> </tr> <tr> <td>' + survey.answer1Selected + '</td> <td>' + survey.answer2Selected + '</td> <td>' + survey.answer3Selected + '</td> <td>' + survey.answer4Selected + '</td> </tr>')
 //  })
-  $('#survey-results').append('</tbody>')
+  $('#survey-results-table').append('</tbody>')
 }
 
 const onViewFailure = function (error) {
