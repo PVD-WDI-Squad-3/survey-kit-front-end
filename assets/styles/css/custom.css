@@ -6,6 +6,16 @@ html *
 label {
   margin-right: .8rem;
 }
+
+.container-fluid {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: initial;
+  padding-left: initial;
+  max-width: max-content;
+}
+
 .modal-footer {
   border-top: none;
 }
@@ -53,4 +63,8 @@ padding: .2rem .60rem;
 
 #dashboard-main {
   background-color: #f8f9fa;
+}
+
+#signUpSuccess .row {
+margin-left: 2px;
 }

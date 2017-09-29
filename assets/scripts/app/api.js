@@ -1,7 +1,7 @@
 const app = require('./../app.js')
 
 const addUser = function(data) {
-  console.log(data)
+  // console.log(data)
   return $.ajax({
     url: app.host + '/sign-up/',
     // headers: { 'header': 'Content-Type: application/json' },
@@ -11,7 +11,7 @@ const addUser = function(data) {
 }
 
 const userLogin = function(data) {
-  console.log(data)
+  // console.log(data)
   return $.ajax({
     url: app.host + '/sign-in/',
     method: 'POST',
@@ -28,7 +28,7 @@ const userLogin = function(data) {
 }
 
 const userLogout = function(id) {
-  console.log('api file')
+  // console.log('api file')
   return $.ajax({
     url: app.host + '/sign-out/' + app.user.id,
     method: 'DELETE',
@@ -60,31 +60,19 @@ const newSurvey = function(data) {
     data: {
       'survey': {
         'title': data.title,
-        'questions': [{
-          'content': {
-            'question': data.question,
-            'answers': [{
-                'answer': data.answer1
-              },
-              {
-                'answer': data.answer2
-              },
-              {
-                'answer': data.answer3
-              },
-              {
-                'answer': data.answer4
-              }
-            ]
-          }
-        }]
+        'question': data.question,
+        'answer1': data.answer1,
+        'answer2': data.answer2,
+        'answer3': data.answer3,
+        'answer4': data.answer4,
+        'timesTaken': 0
       }
     }
   })
 }
 
 const getSurveys = function() {
-  console.log("working also")
+  // console.log("working also")
   return $.ajax({
     url: app.host + '/surveys',
     method: 'GET'
@@ -128,27 +116,73 @@ const getSurvey = function (survId) {
   })
 }
 
-const updateASurvey = function (answerId, surveyId) {
-  return $.ajax({
-    url: app.host + '/surveys/' + surveyId,
-    method: 'PATCH',
-    data: {
-      "survey": {
-      //"title": "Eats",
-      "questions": [{
-        "content": {
-          //"question": "What should we eat?",
-          "answers": [
-            {"answer": answerId, "selected": +1},
-            //{"answer": "Monkeys"},
-            //{"answer": "Fish"},
-            //{"answer": "Nothing"}
-          ]
+const updateASurvey = function (surveyId, taken, data, selected) {
+  taken++
+  selected++
+  // console.log(selected)
+  let answer = data.answer
+  // console.log(answer)
+
+  if (answer === 'answer1') {
+    return $.ajax({
+      url: app.host + '/surveys/' + surveyId,
+      /*headers: {
+        Authorization: 'Token token=' + app.user.token
+      }*/
+      method: 'PATCH',
+      data: {
+        "survey": {
+        "answer1Selected": selected,
+        "timesTaken": taken
         }
-      }]
-    }
+      }
+    })
   }
-  })
+  if (answer === 'answer2') {
+    return $.ajax({
+      url: app.host + '/surveys/' + surveyId,
+      /*headers: {
+        Authorization: 'Token token=' + app.user.token
+      }*/
+      method: 'PATCH',
+      data: {
+        "survey": {
+        "answer2Selected": selected,
+        "timesTaken": taken
+        }
+      }
+    })
+  }
+  if (answer === 'answer3') {
+    return $.ajax({
+      url: app.host + '/surveys/' + surveyId,
+      /*headers: {
+        Authorization: 'Token token=' + app.user.token
+      }*/
+      method: 'PATCH',
+      data: {
+        "survey": {
+        "answer3Selected": selected,
+        "timesTaken": taken
+        }
+      }
+    })
+  }
+  if (answer === 'answer4') {
+    return $.ajax({
+      url: app.host + '/surveys/' + surveyId,
+      /*headers: {
+        Authorization: 'Token token=' + app.user.token
+      }*/
+      method: 'PATCH',
+      data: {
+        "survey": {
+        "answer4Selected": selected,
+        "timesTaken": taken
+        }
+      }
+    })
+  }
 }
 
 module.exports = {
@@ -172,3 +206,28 @@ module.exports = {
 //     'password_confirmation': data.credentials.password
 //   }
 // }
+
+// “"survey": {
+// //"title": title,
+// "questions": [
+//   {
+// 0: {
+// "content": {
+//     //"question": question,
+//   "answers": {
+//
+//         answer: {
+//           "selected": +1
+//         }
+//
+//     //{"answer": "Monkeys"},
+//     //{"answer": "Fish"},
+//     //{"answer": "Nothing"}
+//   }
+// }
+// }
+// }
+// ]
+// }
+// }
+// })”

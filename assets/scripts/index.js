@@ -13,6 +13,7 @@ $(() => {
 // use require without a reference to ensure a file is bundled
 // require('./example')
 const appEvents = require('../scripts/app/events.js')
+const getFormFields = require('../../lib/get-form-fields')
 
 $(() => {
   $('#registration').on('submit', appEvents.registerUser)
@@ -30,25 +31,49 @@ $(() => {
     appEvents.deleteSurvey(deleteId)
   })
 
-  $(document).on('click', '.view-results', function(event) {
+  $(document).on('click', '.view-results', function (event) {
     event.preventDefault()
     let surveyId = $(this).attr('id')
     appEvents.viewResults(surveyId)
   })
 
   $(document).on('click', '.get-a-survey', function (event) {
+    $('.yay-message').empty()
+    $('.find-surveys').hide()
+    $('#quiz-close').show()
+    $('.take-survey').empty()
     event.preventDefault()
     let survId = $(this).attr('id')
     appEvents.getNewSurvey(survId)
   })
 
-  $(document).on('click', '.quiz-answer', function (event) {
+  $(document).on('submit', '#quiz', function (event) {
     event.preventDefault()
-    console.log(this)
+    const data = getFormFields(this)
+    // console.log(data)
+    let selected
+    if (data.answer === "answer1") {
+      selected = $('.0').attr('data-selected')
+      // console.log(selected)
+    } else if (data.answer === "answer2") {
+      selected = $('.1').attr('data-selected')
+    } else if (data.answer === "answer3") {
+      selected = $('.2').attr('data-selected')
+    } else if (data.answer === "answer4") {
+      selected = $('.3').attr('data-selected')
+    }
+    //console.log(this)
     let surveyId = $('#quiz h1').attr('id')
-    console.log(surveyId)
-    let answerId = $(this).attr('id')
-    appEvents.updateSurvey(answerId, surveyId)
+    let taken = $('#taken').html()
+    //console.log(selected)
+    // console.log(taken)
+    // console.log(surveyId)
+    //let answerId = $(this).attr('id')
+    //console.log(answerId)
+    //let title = $('#quiz h1').html()
+    //console.log(title)
+    //let question = $('#quiz h3').html()
+    appEvents.updateSurvey(surveyId, taken, data, selected)
   })
 
 // tutorial from: http://blog.appliedinformaticsinc.com/how-to-addremove-input-fields-dynamically-with-jquery/
@@ -93,6 +118,7 @@ $(() => {
     $('#loginButton2').hide()
     $('.surveyResults').hide()
     $('.cancel').hide()
+    $('#quiz-close').hide()
   })
 
   $(document).on('click', '#myAccountButton', function (e) {
@@ -103,8 +129,17 @@ $(() => {
   })
 
   $('#showCreateSurvey').click(function () {
+    $('.dashboard-messages-created').empty()
+    $('#survey-results-table').empty()
+    $('.yay-message').empty()
     $('#survey').show()
+    $('#quiz-close').hide()
+    // $('#find-surveys').hide()
+    $('.surveyResults').hide()
     $('.view-surveys').hide()
+    $('.find-surveys').hide()
+    $('.yay-message').empty()
+    // $('#quiz-close').show()
     // $('#user-surveys-table').hide()
   })
 
@@ -120,6 +155,27 @@ $(() => {
   $('#view-surveys').click(function () {
     $('#survey').hide()
     $('.view-surveys').show()
+    $('.find-surveys').hide()
+    $('#dashboard-messages-created').empty()
+    $('.yay-message').empty()
+  })
+
+  $('#quiz-close').click(function () {
+    $('#survey').hide()
+    $('.find-surveys').show()
+    $('.take-survey').empty()
+    $('.yay-message').empty()
+    $('#quiz-close').hide()
     $('#dashboard-messages-created').empty()
   })
+
+  $('#find-surveys').click(function () {
+      $('#survey').hide()
+      $('.find-surveys').show()
+      $('.view-surveys').hide()
+      $('.surveyResults').hide()
+      $('.yay-message').empty()
+      $('#dashboard-messages-created').empty()
+      // $('.take-survey').hide()
+      })
 })
