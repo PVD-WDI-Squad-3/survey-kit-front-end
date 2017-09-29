@@ -1,7 +1,7 @@
 # SurveyKit
 ## Build Your Survey in a Pinch
 
-Deployed: https://polar-fjord-39713.herokuapp.com/
+Deployed: https://pvd-wdi-squad-3.github.io/survey-kit-front-end/
 
 
 For our first team project, we followed the assigned prompt to build a custom survey app, à la Survey Monkey.
