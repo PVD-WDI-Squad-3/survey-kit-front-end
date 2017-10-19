@@ -19,7 +19,7 @@ const registerUser = function(event) {
 }
 
 // event handler for login form
-const loginUser = function(event) {
+const loginUser = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
   // console.log('hi')
@@ -28,7 +28,7 @@ const loginUser = function(event) {
     .catch(appUi.onSigninFailure)
 }
 
-const logoutUser = function() {
+const logoutUser = function () {
   // const data = getFormFields(this)
   event.preventDefault(event)
   appApi.userLogout()
@@ -36,7 +36,7 @@ const logoutUser = function() {
     .catch(appUi.onLogoutFailure)
 }
 
-const resetPassword = function(event) {
+const resetPassword = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
   appApi.passwordReset(data)
@@ -44,7 +44,7 @@ const resetPassword = function(event) {
     .catch(appUi.onResetFailure)
 }
 
-const createSurvey = function(event) {
+const createSurvey = function (event) {
   const data = getFormFields(this)
   // console.log(this)
   // console.log(data)

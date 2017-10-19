@@ -1,6 +1,6 @@
 const app = require('./../app.js')
 
-const addUser = function(data) {
+const addUser = function (data) {
   // console.log(data)
   return $.ajax({
     url: app.host + '/sign-up/',
@@ -10,7 +10,7 @@ const addUser = function(data) {
   })
 }
 
-const userLogin = function(data) {
+const userLogin = function (data) {
   // console.log(data)
   return $.ajax({
     url: app.host + '/sign-in/',
@@ -86,7 +86,7 @@ const findAllSurveys = function() {
   })
 }
 
-const deleteSurvey = function(deleteId) {
+const deleteSurvey = function (deleteId) {
   return $.ajax({
     url: app.host + '/surveys/' + deleteId,
     headers: {

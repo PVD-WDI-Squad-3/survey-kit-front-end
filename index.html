@@ -141,49 +141,50 @@
     </div>
   </div><!-- model for registration end_________________________________________ -->
 
-  <!-- modal for login start____________________________________________________ -->
-  <div class="container">
-      <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="loginModalLabel">Sign In</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
+    <!-- modal for login start____________________________________________________ -->
+    <div class="container">
+        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Sign In</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
 
-                <div class="modal-body">
-                  <div class="row">
-                      <div class="col-md-9 push-md-3 offset-md-3">
-                        <form id="login" class="form-login"><p>Log in to your SurveyKit account </p>
-                          <div class="input-group">
-                              <label for="password"> Email </label>
-                            <input type="text" class="form-control" name="credentials[email]" placeholder="email" aria-label="Username" aria-describedby="sizing-addon2">
+                  <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-9 push-md-3 offset-md-3">
+                          <form id="login" class="form-login"><p>Log in to your SurveyKit account </p>
+                            <div class="input-group">
+                                <label for="password"> Email </label>
+                              <input type="text" class="form-control" name="credentials[email]" placeholder="email" aria-label="Username" aria-describedby="sizing-addon2">
+                            </div>
+                          <br>
+                            <div class="input-group">
+                            <label for="password"> Password </label>
+                            <input type="password" class="form-control" name="credentials[password]" placeholder="password">
                           </div>
-                        <br>
-                          <div class="input-group">
-                          <label for="password"> Password </label>
-                          <input type="password" class="form-control" name="credentials[password]" placeholder="password">
-                        </div>
-                        <div class="errorMessageModalLogin"></div>
+                          <div class="errorMessageModalLogin"></div>
+                      </div>
                     </div>
-                  </div>
-                  <br>
-                  <div class="modal-footer-login">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
-                    <button type="submit" class="btn btn-info loginButton" name="submit" value="login">log in</button>
-                    <!-- <input type="submit" class="btn btn-info" name="submit" value="login" data-dismiss="modal" > -->
-                  </div>
-                  </form>
-                  <br>
-                  <button type="button" id="myAccountButton" class="btn btn-secondary" style="background-color: #000" data-toggle="" data-target="" data-dismiss="modal">go to my account</button>   <button class="btn btn-info" id="log-out-btn2" data-dismiss="modal"> log out </button>
-                  <br>
+                    <br>
+                    <div class="modal-footer-login">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
+                      <button type="submit" class="btn btn-info loginButton" name="submit" value="login">log in</button>
+                      <!-- <input type="submit" class="btn btn-info" name="submit" value="login" data-dismiss="modal" > -->
+                    </div>
+                    </form>
+                    <br>
+                    <button type="button" id="myAccountButton" class="btn btn-secondary" style="background-color: #000" data-toggle="" data-target="" data-dismiss="modal">go to my account</button>
+                    <button class="btn btn-info" id="log-out-btn2" data-dismiss="modal"> log out </button>
+                    <br>
+                </div>
               </div>
-            </div>
-        </div>
-    </div>
-  </div><!-- modal for login end_________________________________________ -->
+          </div>
+      </div>
+    </div><!-- modal for login end_________________________________________ -->
 
   <!-- modal for change-password start_______________________________________ -->
   <div class="container">
